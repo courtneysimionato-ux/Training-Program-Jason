@@ -1,0 +1,2722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironman 70.3 Busselton — Training HQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep:#061e2e; --ocean:#0a3a52; --sky:#1a7fa8; --surf:#38c4e8;
+  --gold:#f5a623; --sand:#e8d5a3; --green:#2ecc71; --orange:#e67e22;
+  --purple:#a855f7; --white:#eef4f8; --muted:#6a8fa8;
+  --card:rgba(10,50,75,0.55); --border:rgba(56,196,232,0.15); --glass:rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Barlow',sans-serif;background:var(--deep);color:var(--white);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 40%,rgba(26,127,168,0.12) 0%,transparent 55%),radial-gradient(ellipse at 85% 10%,rgba(10,79,110,0.2) 0%,transparent 50%),linear-gradient(160deg,#061e2e 0%,#082b40 40%,#061e2e 100%);z-index:-1;}
+.container{max-width:1100px;margin:0 auto;padding:0 18px;}
+
+/* HEADER */
+header{padding:36px 0 24px;text-align:center;}
+.badge{display:inline-block;background:var(--gold);color:#1a0e00;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;letter-spacing:3.5px;text-transform:uppercase;padding:4px 14px;border-radius:2px;margin-bottom:14px;}
+h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(38px,8vw,78px);line-height:0.92;text-transform:uppercase;letter-spacing:-1px;}
+h1 .accent{color:var(--surf);}
+h1 .loc{color:var(--gold);font-style:italic;font-size:0.62em;display:block;letter-spacing:2px;margin-top:4px;}
+.tagline{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-top:10px;}
+.dist-strip{display:flex;justify-content:center;gap:20px;margin:16px 0 0;}
+.dist-item{text-align:center;font-family:'Barlow Condensed',sans-serif;}
+.dist-num{font-weight:900;font-size:24px;color:var(--surf);}
+.dist-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.dist-sep{color:var(--border);font-size:22px;align-self:center;}
+
+/* COUNTDOWNS */
+.countdowns{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0;}
+.cd{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 14px;text-align:center;backdrop-filter:blur(12px);transition:transform 0.2s,border-color 0.2s;}
+.cd:hover{transform:translateY(-3px);border-color:var(--surf);}
+.cd.main{border-color:rgba(245,166,35,0.45);background:rgba(245,166,35,0.07);}
+.cd.done{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.05);opacity:0.7;}
+.cd-icon{font-size:24px;margin-bottom:7px;}
+.cd-race{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.cd.main .cd-race{color:var(--gold);}
+.cd-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:54px;line-height:1;color:var(--white);}
+.cd.main .cd-num{color:var(--gold);}
+.cd.done .cd-num{color:var(--green);font-size:32px;padding-top:10px;}
+.cd-unit{font-size:11px;color:var(--muted);letter-spacing:1px;margin-top:2px;}
+.cd-date{font-size:11px;color:var(--surf);margin-top:7px;}
+.cd.main .cd-date{color:var(--sand);}
+.cd-bar-wrap{margin-top:10px;background:rgba(255,255,255,0.08);border-radius:4px;height:4px;overflow:hidden;}
+.cd-bar{height:100%;border-radius:4px;background:var(--surf);}
+.cd.main .cd-bar{background:var(--gold);}
+.cd.done .cd-bar{background:var(--green);width:100%!important;}
+
+/* PHASES */
+.phase-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:20px;backdrop-filter:blur(12px);}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.phases-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.ph{border-radius:8px;padding:12px 8px;text-align:center;border:1px solid transparent;}
+.ph.done{background:rgba(46,204,113,0.1);border-color:rgba(46,204,113,0.3);}
+.ph.now{background:rgba(56,196,232,0.15);border-color:var(--surf);}
+.ph.next{background:var(--glass);border-color:rgba(255,255,255,0.07);}
+.ph-dot{font-size:18px;margin-bottom:4px;}
+.ph-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;}
+.ph.done .ph-name{color:var(--green);} .ph.now .ph-name{color:var(--surf);} .ph.next .ph-name{color:var(--muted);}
+.ph-weeks{font-size:10px;color:var(--muted);margin-top:3px;}
+.ph-desc{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4;}
+
+/* TABS */
+.tabs{display:flex;gap:4px;margin-bottom:18px;background:rgba(255,255,255,0.04);border-radius:12px;padding:4px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:100px;background:none;border:none;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:10px 6px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.tab-btn.active{background:var(--sky);color:var(--white);}
+.tab-content{display:none;animation:fadeUp 0.3s ease;}
+.tab-content.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+/* WEEK NAV */
+.week-nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 20px;margin-bottom:16px;backdrop-filter:blur(12px);}
+.wn-btn{background:none;border:1px solid var(--border);color:var(--surf);font-size:20px;width:38px;height:38px;border-radius:8px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.wn-btn:hover{background:var(--surf);color:var(--deep);} .wn-btn:disabled{opacity:0.25;cursor:default;}
+.wn-info{text-align:center;}
+.wn-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;}
+.wn-phase{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--surf);margin-top:2px;}
+.wn-dates{font-size:11px;color:var(--muted);margin-top:3px;}
+.wn-jump{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:8px;}
+.wn-jump-btn{background:none;border:1px solid var(--border);color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;cursor:pointer;transition:all 0.2s;}
+.wn-jump-btn:hover,.wn-jump-btn.active{background:var(--sky);color:var(--white);border-color:var(--sky);}
+
+/* DAY CARDS */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:16px;}
+.day-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 9px;backdrop-filter:blur(12px);transition:all 0.2s;}
+.day-card:hover{border-color:var(--surf);transform:translateY(-2px);}
+.day-card.rest{opacity:0.5;}
+.day-card.race-day{border-color:var(--gold);background:rgba(245,166,35,0.1);}
+.day-card.key-session{border-color:rgba(230,126,34,0.45);background:rgba(230,126,34,0.06);}
+.day-card.gym-day{border-color:rgba(168,85,247,0.45);background:rgba(168,85,247,0.06);}
+.day-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;}
+.day-card.gym-day .day-name{color:#c084fc;}
+.stype{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:5px;}
+.sdetail{font-size:11px;color:var(--muted);line-height:1.55;}
+.sdur{display:inline-block;margin-top:7px;background:rgba(56,196,232,0.12);border-radius:4px;padding:2px 7px;font-size:10px;color:var(--surf);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;}
+.day-card.key-session .sdur{background:rgba(230,126,34,0.15);color:var(--orange);}
+.day-card.gym-day .sdur{background:rgba(168,85,247,0.15);color:#c084fc;}
+.gym-link{display:inline-block;margin-top:6px;font-size:10px;color:#c084fc;cursor:pointer;text-decoration:underline;letter-spacing:0.5px;}
+
+.swim-c{color:#38c4e8;}.run-c{color:#2ecc71;}.bike-c{color:#f5a623;}.brick-c{color:#e67e22;}.str-c{color:#a855f7;}.rest-c{color:var(--muted);}
+
+.week-note{background:rgba(56,196,232,0.06);border:1px solid rgba(56,196,232,0.18);border-radius:12px;padding:16px 20px;margin-bottom:18px;}
+.week-note h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--surf);margin-bottom:7px;}
+.week-note p{font-size:13px;color:var(--muted);line-height:1.65;}
+.week-note.deload{background:rgba(46,204,113,0.06);border-color:rgba(46,204,113,0.18);}
+.week-note.deload h4{color:var(--green);}
+.week-note.race{background:rgba(245,166,35,0.08);border-color:rgba(245,166,35,0.25);}
+.week-note.race h4{color:var(--gold);}
+
+/* GYM MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:100;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#0d2d42;border:1px solid var(--surf);border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:28px;}
+.modal-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.modal-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;text-transform:uppercase;letter-spacing:1px;}
+.modal-phase{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c084fc;margin-top:4px;}
+.modal-close{background:none;border:1px solid var(--border);color:var(--muted);font-size:18px;width:32px;height:32px;border-radius:8px;cursor:pointer;flex-shrink:0;}
+.modal-close:hover{background:var(--surf);color:var(--deep);}
+.modal-intro{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px;padding:12px 14px;background:rgba(168,85,247,0.08);border-radius:8px;border-left:3px solid #a855f7;}
+.exercise-block{margin-bottom:18px;border:1px solid rgba(168,85,247,0.2);border-radius:10px;overflow:hidden;}
+.ex-header{background:rgba(168,85,247,0.12);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;}
+.ex-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;color:#c084fc;}
+.ex-sets{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;color:var(--gold);}
+.ex-body{padding:12px 14px;}
+.ex-detail{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:6px;}
+.ex-tip{font-size:11px;color:var(--surf);font-style:italic;}
+.rest-note{text-align:center;margin-top:16px;font-size:12px;color:var(--muted);padding:10px;background:rgba(255,255,255,0.04);border-radius:8px;}
+
+/* TARGETS */
+.targets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;}
+.tgt-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;backdrop-filter:blur(12px);}
+.tgt-sport{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+.tgt-row{margin-bottom:11px;}
+.tgt-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.tgt-val{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;}
+.tgt-now{font-size:12px;color:var(--muted);margin-top:1px;}
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:4px;height:5px;overflow:hidden;margin-top:5px;}
+.prog{height:100%;border-radius:4px;}
+.milestone-table{width:100%;border-collapse:collapse;font-size:13px;}
+.milestone-table th{text-align:left;padding:7px 10px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;font-size:11px;text-transform:uppercase;color:var(--surf);border-bottom:1px solid var(--border);}
+.milestone-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.milestone-table tr.race-row td{background:rgba(245,166,35,0.06);}
+
+/* KEY SESSIONS */
+.ks-list{display:flex;flex-direction:column;gap:12px;}
+.ks-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;backdrop-filter:blur(12px);display:flex;gap:16px;align-items:flex-start;}
+.ks-icon{font-size:30px;flex-shrink:0;}
+.ks-body{flex:1;}
+.ks-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:19px;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+.ks-tag{display:inline-block;padding:2px 9px;border-radius:4px;font-size:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.tag-swim{background:rgba(56,196,232,0.18);color:var(--surf);}
+.tag-run{background:rgba(46,204,113,0.18);color:var(--green);}
+.tag-bike{background:rgba(245,166,35,0.18);color:var(--gold);}
+.tag-brick{background:rgba(230,126,34,0.18);color:var(--orange);}
+.tag-str{background:rgba(168,85,247,0.18);color:#c084fc;}
+.ks-desc{font-size:13px;color:var(--muted);line-height:1.65;}
+.ks-when{font-size:11px;color:var(--surf);margin-top:7px;}
+
+/* RACE DAY */
+.rd-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.rd-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;backdrop-filter:blur(12px);}
+.rd-card h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--surf);margin-bottom:14px;}
+.tl-item{display:flex;gap:12px;margin-bottom:11px;align-items:flex-start;}
+.tl-time{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:var(--gold);min-width:54px;}
+.tl-desc{font-size:13px;color:var(--muted);line-height:1.5;}
+.split-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);}
+.split-row:last-child{border:none;}
+.split-leg{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;}
+.split-target{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;color:var(--gold);}
+.split-note{font-size:11px;color:var(--muted);margin-top:2px;}
+.gear-list{list-style:none;}
+.gear-list li{font-size:13px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;}
+.gear-list li:last-child{border:none;}
+.gear-list li::before{content:'✓';color:var(--green);font-size:12px;}
+.nut-row{padding:9px 0;border-bottom:1px solid var(--border);}
+.nut-row:last-child{border:none;}
+.nut-time{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;color:var(--surf);margin-bottom:3px;}
+.nut-desc{font-size:13px;color:var(--muted);}
+
+/* CHECKLIST */
+.cl-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;backdrop-filter:blur(12px);}
+.cl-wrap h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--surf);margin-bottom:4px;}
+.cl-sub{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.cl-progress{background:rgba(255,255,255,0.08);border-radius:6px;height:8px;overflow:hidden;margin-bottom:18px;}
+.cl-progress-bar{height:100%;background:linear-gradient(90deg,var(--sky),var(--surf));border-radius:6px;transition:width 0.5s ease;}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer;}
+.check-item:last-child{border:none;}
+.cb{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--muted);flex-shrink:0;margin-top:1px;transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.check-item.checked .cb{background:var(--green);border-color:var(--green);}
+.check-item.checked .cb::after{content:'✓';color:white;font-size:11px;font-weight:bold;}
+.check-item.checked .ct{color:var(--muted);text-decoration:line-through;}
+.ct{font-size:13px;color:var(--white);line-height:1.45;}
+.ct-phase{font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:1px;}
+
+/* ── 4-WEEK REVIEW ── */
+.review-wrap{display:flex;flex-direction:column;gap:18px;}
+.review-header-bar{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 22px;backdrop-filter:blur(12px);}
+.review-header-bar h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;letter-spacing:1px;text-transform:uppercase;color:var(--surf);}
+.review-select{background:rgba(255,255,255,0.08);border:1px solid var(--border);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;padding:7px 12px;border-radius:8px;cursor:pointer;letter-spacing:1px;}
+.review-select option{background:#0d2d42;color:var(--white);}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;backdrop-filter:blur(12px);}
+.review-card h4{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--surf);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px;}
+.review-field{display:flex;flex-direction:column;gap:5px;}
+.review-field label{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.review-input{background:rgba(255,255,255,0.07);border:1px solid var(--border);color:var(--white);font-family:'Barlow',sans-serif;font-size:13px;padding:8px 10px;border-radius:8px;transition:border-color 0.2s;width:100%;}
+.review-input:focus{outline:none;border-color:var(--surf);}
+.review-textarea{background:rgba(255,255,255,0.07);border:1px solid var(--border);color:var(--white);font-family:'Barlow',sans-serif;font-size:13px;padding:10px 12px;border-radius:8px;resize:vertical;min-height:80px;width:100%;transition:border-color 0.2s;}
+.review-textarea:focus{outline:none;border-color:var(--surf);}
+.review-ratings{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px;}
+.rating-field{display:flex;flex-direction:column;gap:6px;}
+.rating-field label{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.star-row{display:flex;gap:3px;}
+.star{font-size:20px;cursor:pointer;color:rgba(255,255,255,0.2);transition:color 0.15s;line-height:1;}
+.star.on{color:var(--gold);}
+.review-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-save{background:var(--sky);border:none;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:11px 24px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.btn-save:hover{background:var(--surf);color:var(--deep);}
+.btn-clear{background:none;border:1px solid var(--border);color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:11px 18px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.btn-clear:hover{border-color:var(--muted);color:var(--white);}
+.review-saved-badge{display:none;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-size:12px;color:var(--green);letter-spacing:1px;text-transform:uppercase;}
+.review-saved-badge.show{display:flex;}
+.review-history{margin-top:18px;}
+.review-history h4{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.history-item{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;cursor:pointer;transition:border-color 0.2s;}
+.history-item:hover{border-color:var(--surf);}
+.history-item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.history-item-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;color:var(--white);}
+.history-item-date{font-size:11px;color:var(--muted);}
+.history-item-summary{font-size:12px;color:var(--muted);line-height:1.5;}
+.history-stars{display:flex;gap:2px;font-size:13px;}
+.no-reviews{text-align:center;padding:30px;color:var(--muted);font-size:13px;}
+
+@media(max-width:768px){
+  .countdowns{grid-template-columns:1fr;}
+  .phases-grid{grid-template-columns:repeat(2,1fr);}
+  .week-grid{grid-template-columns:repeat(2,1fr);}
+  .targets-grid{grid-template-columns:1fr;}
+  .rd-grid{grid-template-columns:1fr;}
+  .review-grid{grid-template-columns:1fr;}
+  .review-ratings{grid-template-columns:repeat(2,1fr);}
+  .wn-jump{display:none;}
+}
+footer{text-align:center;padding:28px 0 18px;font-size:11px;color:var(--muted);letter-spacing:1px;}
+
+/* EVENING RIDE */
+.eve-session{margin-top:9px;padding-top:9px;border-top:1px dashed rgba(56,196,232,0.2);}
+.eve-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.eve-detail{font-size:10px;color:rgba(56,196,232,0.7);line-height:1.5;}
+.eve-dur{display:inline-block;margin-top:4px;background:rgba(56,196,232,0.08);border-radius:4px;padding:1px 6px;font-size:9px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;}
+.eve-logged{color:var(--green);font-size:10px;margin-top:3px;}
+.btn-log-eve{display:block;margin-top:5px;width:100%;background:none;border:1px dashed rgba(56,196,232,0.2);color:rgba(56,196,232,0.4);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px;border-radius:5px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.btn-log-eve:hover{border-color:var(--surf);color:var(--surf);}
+.btn-log-eve.eve-done{color:rgba(46,204,113,0.6);border-color:rgba(46,204,113,0.2);}
+
+/* DRAG AND DROP */
+.day-col{display:flex;flex-direction:column;gap:0;}
+.day-label{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;padding:8px 4px;background:rgba(255,255,255,0.04);border-radius:8px 8px 0 0;border:1px solid var(--border);border-bottom:none;user-select:none;}
+.session-chip{border-radius:0 0 12px 12px;cursor:grab;transition:all 0.18s;position:relative;}
+.session-chip:active{cursor:grabbing;}
+.session-chip.dragging{opacity:0.35;transform:scale(0.96);}
+.session-chip.drag-over{border-color:var(--gold)!important;background:rgba(245,166,35,0.12)!important;transform:scale(1.03);}
+.session-chip.skipped-chip{opacity:0.5;border-color:rgba(232,67,67,0.3)!important;background:rgba(232,67,67,0.05)!important;}
+.session-chip.logged-chip{border-color:rgba(46,204,113,0.3)!important;}
+.chip-badge{display:inline-block;border-radius:4px;font-size:9px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;padding:1px 6px;margin-bottom:4px;margin-right:3px;}
+.badge-moved{background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.3);color:var(--gold);}
+.badge-skipped{background:rgba(232,67,67,0.15);border:1px solid rgba(232,67,67,0.3);color:#e84343;}
+.badge-logged{background:rgba(46,204,113,0.12);border:1px solid rgba(46,204,113,0.25);color:var(--green);}
+.chip-type{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;}
+.chip-detail{font-size:10px;color:var(--muted);line-height:1.5;}
+.chip-dur{display:inline-block;margin-top:5px;background:rgba(56,196,232,0.1);border-radius:4px;padding:2px 6px;font-size:9px;color:var(--surf);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;}
+.chip-tip{margin-top:5px;font-size:9px;color:rgba(56,196,232,0.55);line-height:1.5;border-top:1px dashed rgba(56,196,232,0.12);padding-top:5px;}
+.chip-logged-summary{margin-top:6px;padding-top:6px;border-top:1px solid rgba(46,204,113,0.2);font-size:9px;color:var(--green);line-height:1.7;}
+.chip-actions{display:flex;gap:4px;margin-top:7px;flex-wrap:wrap;}
+.btn-chip{background:none;border:1px solid rgba(255,255,255,0.08);color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:3px 6px;border-radius:5px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.btn-chip:hover{border-color:var(--surf);color:var(--surf);}
+.btn-chip.log-btn{border-color:rgba(56,196,232,0.3);color:var(--surf);}
+.btn-chip.log-btn.logged{border-color:rgba(46,204,113,0.3);color:var(--green);}
+.btn-chip.skip-btn{border-color:rgba(232,67,67,0.25);color:#e84343;}
+.btn-chip.restore-btn{border-color:rgba(245,166,35,0.3);color:var(--gold);}
+.chip-logged-summary{margin-top:6px;padding-top:6px;border-top:1px solid rgba(46,204,113,0.2);font-size:9px;color:var(--green);line-height:1.7;}
+.eve-chip{margin-top:6px;padding-top:6px;border-top:1px dashed rgba(56,196,232,0.15);}
+.eve-chip-label{font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.eve-chip-detail{font-size:9px;color:rgba(56,196,232,0.6);line-height:1.5;}
+
+/* SESSION LOG ON DAY CARD */
+.log-dot{width:8px;height:8px;border-radius:50%;background:var(--green);position:absolute;top:10px;right:10px;display:none;}
+.day-card{position:relative;}
+.day-card.logged .log-dot{display:block;}
+.day-logged-summary{margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--green);line-height:1.7;}
+.btn-log-session{display:block;margin-top:8px;width:100%;background:none;border:1px dashed rgba(56,196,232,0.3);color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:5px;border-radius:6px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.btn-log-session:hover{border-color:var(--surf);color:var(--surf);}
+.day-card.logged .btn-log-session{color:var(--green);border-color:rgba(46,204,113,0.3);}
+/* SESSION LOG MODAL */
+.slog-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:200;align-items:center;justify-content:center;padding:16px;}
+.slog-overlay.open{display:flex;}
+.slog-modal{background:#0b2436;border:1px solid var(--surf);border-radius:16px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;padding:24px;}
+.slog-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;}
+.slog-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:1px;color:var(--white);}
+.slog-subtitle{font-size:11px;color:var(--muted);margin-top:3px;}
+.slog-close{background:none;border:1px solid var(--border);color:var(--muted);font-size:16px;width:30px;height:30px;border-radius:8px;cursor:pointer;flex-shrink:0;}
+.slog-close:hover{background:var(--surf);color:var(--deep);}
+.slog-section{margin-bottom:16px;}
+.slog-sec-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--surf);margin-bottom:10px;}
+.slog-grid{display:grid;gap:10px;}
+.slog-grid.g2{grid-template-columns:1fr 1fr;}
+.slog-grid.g3{grid-template-columns:1fr 1fr 1fr;}
+.slog-field label{display:block;font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.slog-input{width:100%;background:rgba(255,255,255,0.07);border:1px solid var(--border);color:var(--white);font-family:'Barlow',sans-serif;font-size:13px;padding:8px 10px;border-radius:8px;transition:border-color 0.2s;}
+.slog-input:focus{outline:none;border-color:var(--surf);}
+.slog-textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid var(--border);color:var(--white);font-family:'Barlow',sans-serif;font-size:13px;padding:8px 10px;border-radius:8px;resize:vertical;min-height:60px;}
+.slog-textarea:focus{outline:none;border-color:var(--surf);}
+.feel-row{display:flex;gap:6px;}
+.feel-btn{flex:1;background:none;border:1px solid var(--border);color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;padding:8px 4px;border-radius:8px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.feel-btn.sel{border-color:var(--surf);background:rgba(56,196,232,0.1);}
+.feel-btn[data-v="great"].sel{border-color:var(--green);background:rgba(46,204,113,0.1);}
+.feel-btn[data-v="ok"].sel{border-color:var(--gold);background:rgba(245,166,35,0.1);}
+.feel-btn[data-v="tired"].sel{border-color:#a855f7;background:rgba(168,85,247,0.1);}
+.feel-btn[data-v="rough"].sel{border-color:#e84343;background:rgba(232,67,67,0.1);}
+.gym-ex-labels{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 22px;gap:6px;margin-bottom:4px;}
+.gym-ex-labels span{font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.gym-ex-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 22px;gap:6px;margin-bottom:6px;align-items:center;}
+.gym-ex-row input{width:100%;background:rgba(255,255,255,0.07);border:1px solid var(--border);color:var(--white);font-family:'Barlow',sans-serif;font-size:12px;padding:6px 8px;border-radius:6px;}
+.gym-ex-row input:focus{outline:none;border-color:var(--surf);}
+.btn-add-ex{width:100%;background:none;border:1px dashed rgba(168,85,247,0.3);color:#a855f7;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:1px;padding:7px;border-radius:8px;cursor:pointer;margin-top:4px;transition:all 0.2s;}
+.btn-add-ex:hover{border-color:#a855f7;background:rgba(168,85,247,0.08);}
+.btn-rm-ex{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;padding:0;}
+.btn-rm-ex:hover{color:#e84343;}
+.slog-actions{display:flex;gap:10px;margin-top:18px;}
+.btn-slog-save{flex:1;background:var(--sky);border:none;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:12px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.btn-slog-save:hover{background:var(--surf);color:var(--deep);}
+.btn-slog-delete{background:none;border:1px solid rgba(232,67,67,0.3);color:#e84343;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:12px 14px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.btn-slog-delete:hover{background:rgba(232,67,67,0.1);}
+
+/* LOADING SCREEN */
+#sb-loading{position:fixed;inset:0;background:var(--deep);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.5s ease;}
+#sb-loading.hide{opacity:0;pointer-events:none;}
+.sb-spinner{width:48px;height:48px;border:3px solid rgba(56,196,232,0.2);border-top-color:var(--surf);border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:20px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.sb-load-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:8px;}
+.sb-load-sub{font-size:12px;color:var(--muted);letter-spacing:1px;}
+.sb-sync-banner{position:fixed;top:0;left:0;right:0;z-index:500;padding:8px 16px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-align:center;transform:translateY(-100%);transition:transform 0.3s ease;}
+.sb-sync-banner.show{transform:translateY(0);}
+.sb-sync-banner.saving{background:rgba(26,127,168,0.95);color:var(--white);}
+.sb-sync-banner.saved{background:rgba(46,204,113,0.95);color:var(--white);}
+.sb-sync-banner.error{background:rgba(232,67,67,0.95);color:var(--white);}
+
+/* DAY EDIT / SWAP */
+.day-actions{display:flex;gap:4px;margin-top:7px;}
+.btn-day-action{flex:1;background:none;border:1px solid rgba(255,255,255,0.08);color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 3px;border-radius:5px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.btn-day-action:hover{border-color:var(--surf);color:var(--surf);}
+.btn-day-action.swap-mode{border-color:var(--gold);color:var(--gold);background:rgba(245,166,35,0.1);}
+.day-card.swap-target{border-color:var(--gold)!important;background:rgba(245,166,35,0.08);cursor:pointer;}
+.day-card.swap-source{border-color:var(--surf)!important;background:rgba(56,196,232,0.1);}
+.day-card.rest-override{opacity:1;}
+.moved-badge{display:inline-block;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.3);border-radius:4px;font-size:9px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;color:var(--gold);padding:1px 6px;margin-bottom:5px;}
+.rest-badge{display:inline-block;background:rgba(46,204,113,0.12);border:1px solid rgba(46,204,113,0.25);border-radius:4px;font-size:9px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;color:var(--green);padding:1px 6px;margin-bottom:5px;}
+
+/* EDIT DAY MODAL */
+.edit-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:300;align-items:center;justify-content:center;padding:16px;}
+.edit-overlay.open{display:flex;}
+.edit-modal{background:#0b2436;border:1px solid var(--gold);border-radius:16px;width:100%;max-width:480px;max-height:85vh;overflow-y:auto;padding:24px;}
+.edit-modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.edit-modal-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;color:var(--gold);}
+.edit-close{background:none;border:1px solid var(--border);color:var(--muted);font-size:16px;width:30px;height:30px;border-radius:8px;cursor:pointer;}
+.edit-close:hover{background:var(--surf);color:var(--deep);}
+.edit-option{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;cursor:pointer;transition:all 0.2s;}
+.edit-option:hover{border-color:var(--surf);background:rgba(56,196,232,0.06);}
+.edit-option.selected{border-color:var(--surf);background:rgba(56,196,232,0.1);}
+.edit-option-icon{font-size:22px;flex-shrink:0;}
+.edit-option-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;color:var(--white);}
+.edit-option-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.edit-swap-list{margin-top:12px;}
+.swap-day-btn{width:100%;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:6px;cursor:pointer;transition:all 0.2s;text-align:left;}
+.swap-day-btn:hover{border-color:var(--gold);background:rgba(245,166,35,0.06);}
+.swap-day-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;color:var(--white);}
+.swap-day-session{font-size:11px;color:var(--muted);}
+.btn-mark-rest{width:100%;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);color:var(--green);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:11px;border-radius:8px;cursor:pointer;margin-top:10px;transition:all 0.2s;}
+.btn-mark-rest:hover{background:rgba(46,204,113,0.2);}
+.btn-restore-orig{width:100%;background:rgba(56,196,232,0.08);border:1px solid rgba(56,196,232,0.25);color:var(--surf);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:11px;border-radius:8px;cursor:pointer;margin-top:6px;transition:all 0.2s;}
+.btn-restore-orig:hover{background:rgba(56,196,232,0.15);}
+</style>
+</head>
+<body>
+
+<div id="sb-loading">
+  <div class="sb-spinner"></div>
+  <div class="sb-load-title">Loading Jason's Training HQ</div>
+  <div class="sb-load-sub" id="sb-load-sub">Connecting to cloud...</div>
+</div>
+<div class="sb-sync-banner" id="sb-sync-banner"></div>
+
+<div class="container">
+
+<header>
+  <div class="badge">⚡ Training HQ — 2026 Season</div>
+  <h1>IRONMAN <span class="accent">70.3</span><span class="loc">Busselton, Western Australia</span></h1>
+  <div class="tagline">1.9km Swim · 90km Bike · 21.1km Run · 5 December 2026</div>
+  <div class="dist-strip">
+    <div class="dist-item"><div class="dist-num">🏊 1.9</div><div class="dist-lbl">km Swim</div></div>
+    <div class="dist-sep">+</div>
+    <div class="dist-item"><div class="dist-num">🚴 90</div><div class="dist-lbl">km Bike</div></div>
+    <div class="dist-sep">+</div>
+    <div class="dist-item"><div class="dist-num">🏃 21.1</div><div class="dist-lbl">km Run</div></div>
+  </div>
+</header>
+
+<div class="countdowns">
+  <div class="cd" id="cd-hbf"><div class="cd-icon">🏃</div><div class="cd-race">HBF Run For a Reason</div><div class="cd-num" id="hbf-num">—</div><div class="cd-unit" id="hbf-unit">days to go</div><div class="cd-date">24 May 2026</div><div class="cd-bar-wrap"><div class="cd-bar" id="hbf-bar" style="width:0%"></div></div></div>
+  <div class="cd" id="cd-half"><div class="cd-icon">🥈</div><div class="cd-race">Half Marathon</div><div class="cd-num" id="half-num">—</div><div class="cd-unit">days to go</div><div class="cd-date">11 October 2026</div><div class="cd-bar-wrap"><div class="cd-bar" id="half-bar" style="width:0%"></div></div></div>
+  <div class="cd main" id="cd-im"><div class="cd-icon">🔱</div><div class="cd-race">Ironman 70.3 Busselton</div><div class="cd-num" id="im-num">—</div><div class="cd-unit">days to go</div><div class="cd-date">5 December 2026</div><div class="cd-bar-wrap"><div class="cd-bar" id="im-bar" style="width:0%"></div></div></div>
+</div>
+
+<div class="phase-wrap">
+  <div class="section-label">📍 Training Phases — May to December 2026</div>
+  <div class="phases-grid" id="phases-grid"></div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('program',this)">📅 Program</button>
+  <button class="tab-btn" onclick="showTab('gym',this)">💪 Gym Plan</button>
+  <button class="tab-btn" onclick="showTab('targets',this)">🎯 Targets</button>
+  <button class="tab-btn" onclick="showTab('sessions',this)">⚡ Key Sessions</button>
+  <button class="tab-btn" onclick="showTab('raceday',this)">🔱 Race Day</button>
+  <button class="tab-btn" onclick="showTab('checklist',this)">✅ Checklist</button>
+  <button class="tab-btn" onclick="showTab('review',this)">📊 4-Wk Review</button>
+</div>
+
+<!-- PROGRAM TAB -->
+<div class="tab-content active" id="tab-program">
+  <div class="week-nav">
+    <button class="wn-btn" id="btn-prev" onclick="changeWeek(-1)">‹</button>
+    <div class="wn-info">
+      <div class="wn-num" id="wn-label">Week 1</div>
+      <div class="wn-phase" id="wn-phase"></div>
+      <div class="wn-dates" id="wn-dates"></div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">↔️ Drag sessions to rearrange · Use Skip to skip a session</div>
+      <div class="wn-jump" id="wn-jump"></div>
+      <button id="wn-reset-btn" onclick="resetWeekOrder()" style="display:none;margin-top:6px;background:none;border:1px solid rgba(245,166,35,0.3);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:6px;cursor:pointer;">↩️ Reset Week to Original</button>
+    </div>
+    <button class="wn-btn" id="btn-next" onclick="changeWeek(1)">›</button>
+  </div>
+  <div class="week-grid" id="week-grid"></div>
+  <div class="week-note" id="week-note"></div>
+</div>
+
+<!-- GYM TAB -->
+<div class="tab-content" id="tab-gym">
+  <div id="gym-phase-selector" style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+    <button class="wn-jump-btn active" onclick="showGymPhase('build1',this)">Build 1 (Wk 1–8)</button>
+    <button class="wn-jump-btn" onclick="showGymPhase('build2',this)">Build 2 (Wk 9–18)</button>
+    <button class="wn-jump-btn" onclick="showGymPhase('peak',this)">Peak (Wk 19–24)</button>
+    <button class="wn-jump-btn" onclick="showGymPhase('taper',this)">Taper (Wk 25–28)</button>
+  </div>
+  <div id="gym-content"></div>
+</div>
+
+<!-- TARGETS TAB -->
+<div class="tab-content" id="tab-targets">
+  <div class="targets-grid">
+    <div class="tgt-card">
+      <div class="tgt-sport swim-c">🏊 Swim</div>
+      <div class="tgt-row"><div class="tgt-label">Race Distance</div><div class="tgt-val swim-c">1.9 km</div></div>
+      <div class="tgt-row"><div class="tgt-label">Current Max</div><div class="tgt-now">4.0 km pool ✅ Already exceeds race distance</div></div>
+      <div class="tgt-row"><div class="tgt-label">Current Pace</div><div class="tgt-val swim-c">1:50/100m</div><div class="tgt-now">Already race-ready ✅</div></div>
+      <div class="tgt-row"><div class="tgt-label">Focus</div><div class="tgt-now">Maintain fitness. Open water from Oct — sighting, wetsuit, OW starts.</div></div>
+      <div class="prog-wrap"><div class="prog" style="width:92%;background:var(--surf)"></div></div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">Readiness: 92% — maintain + add OW</div>
+    </div>
+    <div class="tgt-card">
+      <div class="tgt-sport bike-c">🚴 Bike</div>
+      <div class="tgt-row"><div class="tgt-label">Race Distance</div><div class="tgt-val bike-c">90 km</div></div>
+      <div class="tgt-row"><div class="tgt-label">Current Max</div><div class="tgt-now">20 km — biggest gap to close</div></div>
+      <div class="tgt-row"><div class="tgt-label">Current Pace</div><div class="tgt-val bike-c">25 km/h</div><div class="tgt-now">Realistic race target: 26–27 km/h</div></div>
+      <div class="tgt-row"><div class="tgt-label">Peak Training Ride</div><div class="tgt-val">70–75 km</div><div class="tgt-now">Target by October</div></div>
+      <div class="prog-wrap"><div class="prog" style="width:22%;background:var(--gold)"></div></div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">Readiness: 22% — #1 priority this program</div>
+    </div>
+    <div class="tgt-card">
+      <div class="tgt-sport run-c">🏃 Run</div>
+      <div class="tgt-row"><div class="tgt-label">Race Distance</div><div class="tgt-val run-c">21.1 km</div></div>
+      <div class="tgt-row"><div class="tgt-label">Current Max</div><div class="tgt-now">12 km — solid base</div></div>
+      <div class="tgt-row"><div class="tgt-label">Current Pace</div><div class="tgt-val run-c">5:30/km</div><div class="tgt-now">Post-bike realistic target: 6:00–6:30/km</div></div>
+      <div class="tgt-row"><div class="tgt-label">Milestone Races</div><div class="tgt-now">HBF 12km (24 May) · Half Marathon (11 Oct)</div></div>
+      <div class="prog-wrap"><div class="prog" style="width:57%;background:var(--green)"></div></div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">Readiness: 57% — extend + brick running</div>
+    </div>
+  </div>
+  <div class="rd-card"><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--surf);margin-bottom:14px;">📅 Monthly Volume Milestones</h3>
+    <table class="milestone-table"><thead><tr><th>Month</th><th>Long Swim</th><th>Long Ride</th><th>Long Run</th><th>Key Goal</th></tr></thead>
+    <tbody id="milestones-body"></tbody></table>
+  </div>
+</div>
+
+<!-- KEY SESSIONS TAB -->
+<div class="tab-content" id="tab-sessions">
+  <div class="ks-list" id="ks-list"></div>
+</div>
+
+<!-- RACE DAY TAB -->
+<div class="tab-content" id="tab-raceday">
+  <div class="rd-grid">
+    <div class="rd-card"><h3>⏰ Race Day Timeline</h3><div id="rd-timeline"></div></div>
+    <div class="rd-card"><h3>🎯 Target Splits</h3><div id="rd-splits"></div></div>
+    <div class="rd-card"><h3>🏷️ Race Gear</h3><ul class="gear-list" id="rd-gear"></ul></div>
+    <div class="rd-card"><h3>🍌 Nutrition Strategy</h3><div id="rd-nutrition"></div></div>
+  </div>
+</div>
+
+<!-- CHECKLIST TAB -->
+<div class="tab-content" id="tab-checklist">
+  <div class="cl-wrap">
+    <h3>🏆 Training Milestones</h3>
+    <div class="cl-sub" id="cl-sub">Tick these off as you achieve them</div>
+    <div class="cl-progress"><div class="cl-progress-bar" id="cl-bar" style="width:0%"></div></div>
+    <div id="cl-items"></div>
+  </div>
+</div>
+
+<!-- REVIEW TAB -->
+<div class="tab-content" id="tab-review">
+  <div class="review-wrap">
+    <div class="review-header-bar">
+      <div>
+        <h3>📊 4-Week Review</h3>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;">Fill this in every 4 weeks to track progress and adjust.</div>
+      </div>
+      <select class="review-select" id="review-period-select" onchange="loadReview()">
+      </select>
+    </div>
+
+    <div class="review-card">
+      <h4>📏 Distances Completed This Block</h4>
+      <div class="review-grid">
+        <div class="review-field"><label>Longest Ride (km)</label><input class="review-input" id="r-long-ride" type="number" placeholder="e.g. 35"></div>
+        <div class="review-field"><label>Longest Run (km)</label><input class="review-input" id="r-long-run" type="number" placeholder="e.g. 12"></div>
+        <div class="review-field"><label>Longest Swim (km)</label><input class="review-input" id="r-long-swim" type="number" step="0.1" placeholder="e.g. 2.5"></div>
+        <div class="review-field"><label>Total Rides This Block</label><input class="review-input" id="r-total-rides" type="number" placeholder="e.g. 8"></div>
+        <div class="review-field"><label>Total Runs This Block</label><input class="review-input" id="r-total-runs" type="number" placeholder="e.g. 8"></div>
+        <div class="review-field"><label>Total Swims This Block</label><input class="review-input" id="r-total-swims" type="number" placeholder="e.g. 4"></div>
+        <div class="review-field"><label>Brick Sessions Done</label><input class="review-input" id="r-bricks" type="number" placeholder="e.g. 2"></div>
+        <div class="review-field"><label>Gym Sessions Done</label><input class="review-input" id="r-gym" type="number" placeholder="e.g. 3"></div>
+        <div class="review-field"><label>Sessions Missed</label><input class="review-input" id="r-missed" type="number" placeholder="e.g. 1"></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <h4>⚡ Performance This Block</h4>
+      <div class="review-grid">
+        <div class="review-field"><label>Avg Run Pace (min/km)</label><input class="review-input" id="r-run-pace" type="text" placeholder="e.g. 5:30"></div>
+        <div class="review-field"><label>Avg Bike Speed (km/h)</label><input class="review-input" id="r-bike-speed" type="number" step="0.1" placeholder="e.g. 26.5"></div>
+        <div class="review-field"><label>Swim Pace (/100m)</label><input class="review-input" id="r-swim-pace" type="text" placeholder="e.g. 1:48"></div>
+        <div class="review-field"><label>Resting Heart Rate</label><input class="review-input" id="r-rhr" type="number" placeholder="e.g. 52"></div>
+        <div class="review-field"><label>Body Weight (kg)</label><input class="review-input" id="r-weight" type="number" step="0.1" placeholder="e.g. 78.5"></div>
+        <div class="review-field"><label>Best Brick Time (min)</label><input class="review-input" id="r-brick-time" type="number" placeholder="e.g. 75"></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <h4>🌡️ How Did This Block Feel?</h4>
+      <div class="review-ratings">
+        <div class="rating-field">
+          <label>Overall Energy</label>
+          <div class="star-row" id="stars-energy" data-key="energy"></div>
+        </div>
+        <div class="rating-field">
+          <label>Training Consistency</label>
+          <div class="star-row" id="stars-consistency" data-key="consistency"></div>
+        </div>
+        <div class="rating-field">
+          <label>Bike Confidence</label>
+          <div class="star-row" id="stars-bike" data-key="bike"></div>
+        </div>
+        <div class="rating-field">
+          <label>Overall Fitness Feel</label>
+          <div class="star-row" id="stars-fitness" data-key="fitness"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <h4>📝 Reflections</h4>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="review-field"><label>What went well this block?</label><textarea class="review-textarea" id="r-went-well" placeholder="Sessions you're proud of, improvements you noticed, how you're feeling about the goal..."></textarea></div>
+        <div class="review-field"><label>What was challenging or missed?</label><textarea class="review-textarea" id="r-challenges" placeholder="Sessions skipped, fatigue, injury niggles, life getting in the way..."></textarea></div>
+        <div class="review-field"><label>Focus & adjustments for next block</label><textarea class="review-textarea" id="r-next-focus" placeholder="What do you want to prioritise? Any sessions to modify? Nutrition to improve?"></textarea></div>
+        <div class="review-field"><label>Any niggles, soreness or injury to note?</label><textarea class="review-textarea" id="r-injuries" placeholder="Better to flag early than ignore. Note location and when it appears."></textarea></div>
+      </div>
+    </div>
+
+    <div class="review-actions">
+      <button class="btn-save" onclick="saveReview()">💾 Save Review</button>
+      <button class="btn-clear" onclick="clearReview()">Clear Form</button>
+      <button class="btn-clear" onclick="exportReviewData(document.getElementById('review-period-select').value)" style="border-color:var(--gold);color:var(--gold);">📤 Export for Claude Review</button>
+      <button class="btn-clear" onclick="exportBackup()" style="border-color:var(--green);color:var(--green);">💾 Download Backup</button>
+      <label class="btn-clear" style="border-color:var(--purple);color:var(--purple);cursor:pointer;">
+        📥 Restore Backup
+        <input type="file" accept=".json" style="display:none" onchange="importBackup(this)">
+      </label>
+      <div class="review-saved-badge" id="saved-badge">✅ Review Saved!</div>
+    </div>
+
+    <div class="review-history">
+      <h4>Previous Reviews</h4>
+      <div id="review-history-list"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SESSION LOG MODAL -->
+<div class="slog-overlay" id="slog-overlay" onclick="closeSlogIfBg(event)">
+  <div class="slog-modal" id="slog-modal">
+    <div class="slog-header">
+      <div>
+        <div class="slog-title" id="slog-title">Log Session</div>
+        <div class="slog-subtitle" id="slog-subtitle"></div>
+      </div>
+      <button class="slog-close" onclick="closeSlog()">✕</button>
+    </div>
+    <div id="slog-coach-tip" style="font-size:12px;color:var(--surf);background:rgba(56,196,232,0.08);border-radius:8px;padding:10px 12px;margin-bottom:14px;line-height:1.6;display:none;"></div>
+    <div id="slog-log-note" style="font-size:11px;color:var(--gold);background:rgba(245,166,35,0.07);border-radius:8px;padding:8px 12px;margin-bottom:14px;line-height:1.6;display:none;"></div>
+
+    <!-- CARDIO FIELDS -->
+    <div id="slog-cardio-fields">
+
+      <!-- Morning check-in (Monday only) -->
+      <div class="slog-section" id="slog-rhr-field" style="display:none;">
+        <div class="slog-sec-title">❤️ Morning Check-in</div>
+        <div class="slog-grid g2">
+          <div class="slog-field"><label>Resting HR (bpm — before getting out of bed)</label><input class="slog-input" id="sl-rhr" type="number" placeholder="e.g. 48"></div>
+          <div class="slog-field"><label>Sleep last night (hours)</label>
+            <div style="display:flex;gap:6px;">
+              <input class="slog-input" id="sl-sleep-h" type="number" min="0" max="12" placeholder="hrs" style="flex:1;">
+              <input class="slog-input" id="sl-sleep-m" type="number" min="0" max="59" placeholder="min" style="flex:1;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session data -->
+      <div class="slog-section">
+        <div class="slog-sec-title">📏 Session Data</div>
+        <div class="slog-grid g3">
+          <div class="slog-field">
+            <label>Distance (km)</label>
+            <input class="slog-input" id="sl-dist" type="number" step="0.1" placeholder="e.g. 10.5">
+          </div>
+          <div class="slog-field">
+            <label>Total Duration</label>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <input class="slog-input" id="sl-dur-h" type="number" min="0" max="12" placeholder="hrs" style="flex:1;" oninput="updateDurField()">
+              <span style="color:var(--muted);font-size:13px;">:</span>
+              <input class="slog-input" id="sl-dur-m" type="number" min="0" max="59" placeholder="min" style="flex:1;" oninput="updateDurField()">
+              <span style="color:var(--muted);font-size:13px;">:</span>
+              <input class="slog-input" id="sl-dur-s" type="number" min="0" max="59" placeholder="sec" style="flex:1;" oninput="updateDurField()">
+            </div>
+            <input type="hidden" id="sl-dur">
+          </div>
+          <div class="slog-field">
+            <label>Avg HR (bpm)</label>
+            <input class="slog-input" id="sl-hr" type="number" placeholder="e.g. 148">
+          </div>
+        </div>
+      </div>
+
+      <!-- Run stats -->
+      <div class="slog-section" id="slog-run-fields">
+        <div class="slog-sec-title">🏃 Run Stats</div>
+        <div class="slog-grid g2">
+          <div class="slog-field">
+            <label>Avg Pace (per km)</label>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <input class="slog-input" id="sl-run-pace-m" type="number" min="0" max="20" placeholder="min" style="flex:1;" oninput="updatePaceField('run-pace','run-pace-m','run-pace-s')">
+              <span style="color:var(--muted);font-size:16px;font-weight:bold;">:</span>
+              <input class="slog-input" id="sl-run-pace-s" type="number" min="0" max="59" placeholder="sec" style="flex:1;" oninput="updatePaceField('run-pace','run-pace-m','run-pace-s')">
+            </div>
+            <input type="hidden" id="sl-run-pace">
+            <div style="font-size:10px;color:var(--muted);margin-top:3px;" id="sl-run-pace-display"></div>
+          </div>
+          <div class="slog-field">
+            <label>Max HR (bpm)</label>
+            <input class="slog-input" id="sl-max-hr" type="number" placeholder="e.g. 172">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bike stats -->
+      <div class="slog-section" id="slog-bike-fields">
+        <div class="slog-sec-title">🚴 Bike Stats</div>
+        <div class="slog-grid g2">
+          <div class="slog-field">
+            <label>Avg Speed (km/h)</label>
+            <input class="slog-input" id="sl-speed" type="number" step="0.1" placeholder="e.g. 27.5">
+          </div>
+          <div class="slog-field">
+            <label>Max HR (bpm)</label>
+            <input class="slog-input" id="sl-bike-max-hr" type="number" placeholder="e.g. 168">
+          </div>
+        </div>
+      </div>
+
+      <!-- Swim stats -->
+      <div class="slog-section" id="slog-swim-fields">
+        <div class="slog-sec-title">🏊 Swim Stats</div>
+        <div class="slog-grid g2">
+          <div class="slog-field">
+            <label>Avg Pace (per 100m)</label>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <input class="slog-input" id="sl-swim-pace-m" type="number" min="0" max="10" placeholder="min" style="flex:1;" oninput="updatePaceField('swim-pace','swim-pace-m','swim-pace-s')">
+              <span style="color:var(--muted);font-size:16px;font-weight:bold;">:</span>
+              <input class="slog-input" id="sl-swim-pace-s" type="number" min="0" max="59" placeholder="sec" style="flex:1;" oninput="updatePaceField('swim-pace','swim-pace-m','swim-pace-s')">
+            </div>
+            <input type="hidden" id="sl-swim-pace">
+            <div style="font-size:10px;color:var(--muted);margin-top:3px;" id="sl-swim-pace-display"></div>
+          </div>
+          <div class="slog-field">
+            <label>Pool / Open Water</label>
+            <select class="slog-input" id="sl-swim-type" style="background:#0b2436;">
+              <option value="pool">Pool</option>
+              <option value="open">Open Water</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brick run leg -->
+      <div class="slog-section" id="slog-brick-extra" style="display:none;">
+        <div class="slog-sec-title">🧱 Brick — Run Leg</div>
+        <div class="slog-grid g3">
+          <div class="slog-field">
+            <label>Run Distance (km)</label>
+            <input class="slog-input" id="sl-brick-run-dist" type="number" step="0.1" placeholder="e.g. 4.0">
+          </div>
+          <div class="slog-field">
+            <label>Run Pace (per km)</label>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <input class="slog-input" id="sl-brick-run-pace-m" type="number" min="0" max="20" placeholder="min" style="flex:1;" oninput="updatePaceField('brick-run-pace','brick-run-pace-m','brick-run-pace-s')">
+              <span style="color:var(--muted);font-size:16px;font-weight:bold;">:</span>
+              <input class="slog-input" id="sl-brick-run-pace-s" type="number" min="0" max="59" placeholder="sec" style="flex:1;" oninput="updatePaceField('brick-run-pace','brick-run-pace-m','brick-run-pace-s')">
+            </div>
+            <input type="hidden" id="sl-brick-run-pace">
+            <div style="font-size:10px;color:var(--muted);margin-top:3px;" id="sl-brick-run-pace-display"></div>
+          </div>
+          <div class="slog-field">
+            <label>Run Avg HR (bpm)</label>
+            <input class="slog-input" id="sl-brick-run-hr" type="number" placeholder="e.g. 158">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GYM FIELDS -->
+    <div id="slog-gym-fields" style="display:none;">
+      <div class="slog-section">
+        <div class="slog-sec-title">💪 Exercises Completed</div>
+        <div class="gym-ex-labels">
+          <span>Exercise</span><span>Sets</span><span>Reps</span><span>Weight (kg)</span><span></span>
+        </div>
+        <div id="gym-ex-list"></div>
+        <button class="btn-add-ex" onclick="addGymEx()">+ Add Exercise</button>
+      </div>
+    </div>
+
+    <!-- SHARED FIELDS -->
+    <div class="slog-section">
+      <div class="slog-sec-title">😊 How Did It Feel?</div>
+      <div class="feel-row">
+        <button class="feel-btn" data-v="great" onclick="setFeel(this)">😄 Great</button>
+        <button class="feel-btn" data-v="ok" onclick="setFeel(this)">😐 OK</button>
+        <button class="feel-btn" data-v="tired" onclick="setFeel(this)">😴 Tired</button>
+        <button class="feel-btn" data-v="rough" onclick="setFeel(this)">💀 Rough</button>
+      </div>
+    </div>
+    <div class="slog-section">
+      <div class="slog-sec-title">🩹 Any Niggles or Soreness?</div>
+      <textarea class="slog-textarea" id="sl-niggle" placeholder="Any pain, tightness or discomfort? Note where and when it appeared. Flag early — don't ignore it." style="min-height:50px;"></textarea>
+    </div>
+    <div class="slog-section" id="slog-nutrition-field" style="display:none;">
+      <div class="slog-sec-title">🍌 Nutrition (Long Sessions)</div>
+      <textarea class="slog-textarea" id="sl-nutrition" placeholder="What did you eat and drink during the session? How much, and when? This is your race day nutrition test." style="min-height:60px;"></textarea>
+    </div>
+    <div class="slog-section">
+      <div class="slog-sec-title">📝 Notes</div>
+      <textarea class="slog-textarea" id="sl-notes" placeholder="How did it go? What went well? Anything to remember for next time?"></textarea>
+    </div>
+
+    <div class="slog-actions">
+      <button class="btn-slog-save" onclick="saveSessionLog()">💾 Save Session</button>
+      <button class="btn-slog-delete" id="btn-slog-delete" onclick="deleteSessionLog()" style="display:none;">Delete</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- DAY EDIT MODAL -->
+<div class="edit-overlay" id="edit-overlay" onclick="closeEditIfBg(event)">
+  <div class="edit-modal">
+    <div class="edit-modal-header">
+      <div class="edit-modal-title" id="edit-modal-title">Edit Day</div>
+      <button class="edit-close" onclick="closeEdit()">✕</button>
+    </div>
+    <div id="edit-modal-body"></div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- GYM MODAL -->
+<div class="modal-overlay" id="gym-modal" onclick="closeGymModal(event)">
+  <div class="modal" id="gym-modal-inner">
+    <div class="modal-header">
+      <div><div class="modal-title" id="modal-title">Gym Session</div><div class="modal-phase" id="modal-phase"></div></div>
+      <button class="modal-close" onclick="closeGymModalBtn()">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<footer>Built for race day · Busselton · 5 December 2026 🔱</footer>
+
+<script>
+
+// ── SUPABASE CONFIG ──
+const SUPABASE_URL = 'https://lqyczipgwitvvdldpfcm.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_NW4meAW_l_w9N0k0S3VrPw_pNkkJQKV';
+const USER_ID = 'Jason';
+
+// In-memory cache so UI stays fast after first load
+const _cache = {};
+
+// Show sync banner
+function showBanner(msg, type, duration=2000) {
+  const b = document.getElementById('sb-sync-banner');
+  b.textContent = msg;
+  b.className = 'sb-sync-banner show ' + type;
+  if(duration) setTimeout(() => b.classList.remove('show'), duration);
+}
+
+// Core Supabase fetch helper
+async function sbFetch(method, path, body) {
+  const res = await fetch(SUPABASE_URL + path, {
+    method,
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Prefer': method === 'POST' ? 'resolution=merge-duplicates' : ''
+    },
+    body: body ? JSON.stringify(body) : undefined
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(err);
+  }
+  return res.status === 204 ? null : res.json();
+}
+
+// ── sbGet: read from Supabase, fall back to cache ──
+async function sbGet(key) {
+  if(_cache[key] !== undefined) return _cache[key];
+  try {
+    const table = keyToTable(key);
+    const id = keyToId(key);
+    const rows = await sbFetch('GET', `/rest/v1/${table}?id=eq.${encodeURIComponent(id)}&user_id=eq.${USER_ID}&select=data`);
+    const val = (rows && rows[0]) ? rows[0].data : null;
+    _cache[key] = val;
+    return val;
+  } catch(e) {
+    console.warn('sbGet failed for', key, e);
+    return null;
+  }
+}
+
+// ── sbSet: write to Supabase + update cache ──
+async function sbSet(key, value) {
+  _cache[key] = value;
+  try {
+    const table = keyToTable(key);
+    const id = keyToId(key);
+    await sbFetch('POST', `/rest/v1/${table}`, {
+      id, user_id: USER_ID, data: value, updated_at: new Date().toISOString()
+    });
+  } catch(e) {
+    console.warn('sbSet failed for', key, e);
+    showBanner('⚠️ Save failed — check connection', 'error', 4000);
+  }
+}
+
+// ── sbDelete: remove from Supabase + cache ──
+async function sbDelete(key) {
+  delete _cache[key];
+  try {
+    const table = keyToTable(key);
+    const id = keyToId(key);
+    await sbFetch('DELETE', `/rest/v1/${table}?id=eq.${encodeURIComponent(id)}&user_id=eq.${USER_ID}`);
+  } catch(e) {
+    console.warn('sbDelete failed for', key, e);
+  }
+}
+
+// Map key strings to Supabase tables
+function keyToTable(key) {
+  if(key.startsWith('slog-')) return 'session_logs';
+  if(key.startsWith('evelog-')) return 'evening_logs';
+  if(key === 'im-checklist') return 'checklist';
+  if(key.startsWith('im-review-')) return 'reviews';
+  return 'session_logs';
+}
+
+function keyToId(key) {
+  if(key === 'im-checklist') return USER_ID + '-checklist';
+  if(key.startsWith('im-review-')) return USER_ID + '-' + key;
+  return USER_ID + '-' + key;
+}
+
+// ── Preload all data into cache on startup ──
+async function preloadAllData() {
+  document.getElementById('sb-load-sub').textContent = 'Fetching session logs...';
+  try {
+    // Load all session logs
+    const sessions = await sbFetch('GET', `/rest/v1/session_logs?user_id=eq.${USER_ID}&select=id,data`);
+    (sessions||[]).forEach(row => {
+      const key = row.id.replace(USER_ID + '-', '');
+      _cache[key] = row.data;
+    });
+
+    document.getElementById('sb-load-sub').textContent = 'Fetching evening rides...';
+    const evenings = await sbFetch('GET', `/rest/v1/evening_logs?user_id=eq.${USER_ID}&select=id,data`);
+    (evenings||[]).forEach(row => {
+      const key = row.id.replace(USER_ID + '-', '');
+      _cache[key] = row.data;
+    });
+
+    document.getElementById('sb-load-sub').textContent = 'Fetching checklist...';
+    const checklist = await sbFetch('GET', `/rest/v1/checklist?user_id=eq.${USER_ID}&select=data`);
+    if(checklist && checklist[0]) _cache['im-checklist'] = checklist[0].data;
+
+    document.getElementById('sb-load-sub').textContent = 'Fetching reviews...';
+    const reviews = await sbFetch('GET', `/rest/v1/reviews?user_id=eq.${USER_ID}&select=id,data`);
+    (reviews||[]).forEach(row => {
+      const key = row.id.replace(USER_ID + '-', '');
+      _cache[key] = row.data;
+    });
+
+    document.getElementById('sb-load-sub').textContent = 'Fetching schedule changes...';
+    // Load week orders and skips
+    const scheduleData = await sbFetch('GET', `/rest/v1/session_logs?user_id=eq.${USER_ID}&id=like.${USER_ID}-week-order*&select=id,data`);
+    (scheduleData||[]).forEach(row => {
+      const key = row.id.replace(USER_ID + '-', '');
+      _cache[key] = row.data;
+    });
+    const skipData = await sbFetch('GET', `/rest/v1/session_logs?user_id=eq.${USER_ID}&id=like.${USER_ID}-week-skip*&select=id,data`);
+    (skipData||[]).forEach(row => {
+      const key = row.id.replace(USER_ID + '-', '');
+      _cache[key] = row.data;
+    });
+
+    document.getElementById('sb-load-sub').textContent = 'Ready!';
+  } catch(e) {
+    document.getElementById('sb-load-sub').textContent = 'Offline — using local data';
+    console.warn('Preload failed:', e);
+  }
+}
+
+// ── Override _ls with Supabase-backed async versions ──
+// We keep a synchronous cache layer so existing sync code still works
+// For saves we fire async writes in the background
+const _ls = {
+  getItem: (k) => {
+    const v = _cache[k];
+    return v !== undefined && v !== null ? JSON.stringify(v) : null;
+  },
+  setItem: (k, v) => {
+    const parsed = JSON.parse(v);
+    _cache[k] = parsed;
+    // Fire async save in background — don't await
+    sbSet(k, parsed).then(() => showBanner('✅ Saved to cloud', 'saved', 1500));
+  },
+  removeItem: (k) => {
+    delete _cache[k];
+    sbDelete(k);
+  }
+};
+
+// ── DATES ──
+const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+const PROGRAM_START = new Date('2026-05-05');
+const RACES = { hbf:new Date('2026-05-24'), half:new Date('2026-10-11'), im:new Date('2026-12-05') };
+
+const PHASES = [
+  { name:'Build 1', icon:'📈', weeks:'Wk 1–8', desc:'Long rides start, first bricks', start:new Date('2026-05-05'), end:new Date('2026-06-29') },
+  { name:'Build 2', icon:'🔥', weeks:'Wk 9–18', desc:'Peak volume, race-sim sessions', start:new Date('2026-06-30'), end:new Date('2026-09-07') },
+  { name:'Peak', icon:'⚡', weeks:'Wk 19–24', desc:'Half marathon, sharpening', start:new Date('2026-09-08'), end:new Date('2026-11-02') },
+  { name:'Taper', icon:'🎯', weeks:'Wk 25–28', desc:'Reduce volume, stay sharp', start:new Date('2026-11-03'), end:new Date('2026-12-05') },
+];
+
+// ── GYM PROGRAMS (full detail per phase) ──
+const GYM_PHASES = {
+  build1: {
+    label:'Build 1 — Foundation Strength',
+    phase:'Weeks 1–8 · Tuesday (morning or afternoon)',
+    duration:'40–45 minutes',
+    intro:'This phase builds the strength foundation you\'ll rely on all season. Focus is on learning the movements correctly with moderate weight. Every exercise has a triathlon-specific purpose — glutes and legs for bike power, single-leg stability for run economy, core for holding position in aero. Two sets per exercise, no ego lifting.',
+    exercises:[
+      { name:'Goblet Squat', sets:'3 sets × 12 reps', detail:'Hold a dumbbell or kettlebell at chest height. Feet shoulder-width apart, toes slightly out. Squat deep — aim for thighs parallel to floor. Drive through heels to stand. Rest 60sec between sets.', tip:'Purpose: builds quad and glute strength for climbing on the bike. Start light — 8–12kg. Add weight when 12 reps feel easy.' },
+      { name:'Single-Leg Romanian Deadlift', sets:'3 sets × 10 reps each leg', detail:'Hold a light dumbbell (5–8kg) in opposite hand to standing leg. Hinge at the hip, extend free leg behind you, lower weight toward floor. Keep back flat throughout. Squeeze glute to return upright.', tip:'Purpose: injury prevention and hip stability for running. This one is hard — don\'t rush the weight up.' },
+      { name:'Hip Bridge / Glute Bridge', sets:'3 sets × 15 reps', detail:'Lie on back, feet flat on floor, knees bent. Drive hips to the ceiling, squeeze glutes hard at the top for 2 seconds. Lower slowly. Can progress to single-leg version after 3 weeks.', tip:'Purpose: activates glutes for running efficiency. Weak glutes = sore knees and hips. This fixes it.' },
+      { name:'Split Squat (Bulgarian optional)', sets:'3 sets × 10 reps each leg', detail:'Rear foot elevated on a bench (or just a standard lunge position). Front foot forward. Lower back knee toward floor. Front thigh parallel. Drive through front heel to stand. Hold dumbbells (5–10kg each) at sides.', tip:'Purpose: single-leg bike power and run stability. This will be hard at first — that\'s the point.' },
+      { name:'Lat Pulldown', sets:'3 sets × 12 reps', detail:'Wide grip, pull bar to upper chest. Lean back slightly. Control the return. Don\'t use momentum.', tip:'Purpose: swim pull strength and postural muscles for holding aero position on the bike.' },
+      { name:'Plank', sets:'3 sets × 45 seconds', detail:'Forearms on floor, body in a straight line from head to heel. Don\'t let hips sag or pike up. Breathe steadily. Build to 60sec over the 8 weeks.', tip:'Purpose: core stability holds you together in aero position for 3+ hours.' },
+      { name:'Calf Raises', sets:'3 sets × 20 reps', detail:'Stand on edge of step, full range of motion — heel drops below step level, then rise up onto toes. Do single-leg version once you\'re comfortable. Add weight (hold dumbbell) when easy.', tip:'Purpose: run economy and injury prevention. Achilles and calves take a hammering in triathlon.' },
+    ],
+    finisher:'5 min foam roll: quads, IT band, hip flexors, calves. This is not optional — it takes 5 minutes and saves your joints.'
+  },
+  build2: {
+    label:'Build 2 — Power & Endurance',
+    phase:'Weeks 9–18 · Tuesday (morning or afternoon)',
+    duration:'45–50 minutes',
+    intro:'Build 2 increases intensity and volume slightly in the gym. We add a power element and increase loading on the main lifts. You should be comfortable with all movements from Build 1 — now it\'s time to load them. Three sets per exercise.',
+    exercises:[
+      { name:'Barbell Back Squat or Goblet Squat (heavier)', sets:'4 sets × 8–10 reps', detail:'If comfortable with barbells, progress to back squat at moderate weight (40–60kg). Otherwise continue goblet squat with heavier KB (16–24kg). Full depth. Controlled descent, explosive drive up.', tip:'Purpose: maximum leg power for bike and run. This is the primary strength driver of the program.' },
+      { name:'Bulgarian Split Squat', sets:'3 sets × 8 reps each leg', detail:'Rear foot on bench. Hold dumbbells (10–16kg each). Sink deep, drive through front heel. 3 seconds down, explosive up. This should be hard by the last 2 reps.', tip:'Purpose: single-leg power output. By now this should feel familiar — time to make it hard.' },
+      { name:'Barbell or Dumbbell Romanian Deadlift', sets:'3 sets × 10 reps', detail:'Both legs on the ground this phase. Hinge at hips, weight travels down thighs. Keep back flat and core braced. Moderate-heavy weight. Squeeze glutes at the top.', tip:'Purpose: posterior chain — hamstrings, glutes, lower back. Prevents injury and improves bike power.' },
+      { name:'Box Jump or Step-Up (power)', sets:'3 sets × 8 reps', detail:'Box jump: stand in front of a box (40–50cm), explosive jump, land softly with bent knees. Step down, don\'t jump down. Or: weighted step-ups with dumbbells (8–12kg each).', tip:'Purpose: neuromuscular power and fast-twitch activation. Makes the run feel more explosive.' },
+      { name:'Seated Cable Row', sets:'3 sets × 12 reps', detail:'Neutral grip, pull handle to lower chest. Squeeze shoulder blades together at the end. Slow return. Keep back straight.', tip:'Purpose: posture and swim pull strength. Fighting fatigue in aero position later in the race.' },
+      { name:'Single-Leg Hip Bridge', sets:'3 sets × 12 reps each leg', detail:'Same as standard bridge but one leg extended in the air. Drive through planted heel. Hold 2 sec at top. This is much harder — good.', tip:'Purpose: glute isolation and running stability under fatigue.' },
+      { name:'Dead Bug', sets:'3 sets × 10 reps each side', detail:'Lie on back, arms extended toward ceiling, legs in tabletop. Slowly lower opposite arm and leg toward floor while maintaining lower back contact with floor. Return and switch.', tip:'Purpose: deep core stability — protects lower back through thousands of pedal strokes and strides.' },
+      { name:'Calf Raises — Single Leg', sets:'3 sets × 15 reps each leg', detail:'One foot on step edge. Full range of motion. Slow down (3 sec), explosive up. Add weight when easy.', tip:'Purpose: Achilles and calf strength for the run. More important than most athletes realise.' },
+    ],
+    finisher:'5 min foam roll + 2 min hip flexor stretch each side. Hip flexors tighten badly on the bike — stretch them every gym day.'
+  },
+  peak: {
+    label:'Peak Phase — Maintenance Only',
+    phase:'Weeks 19–24 · Tuesday (keep it light)',
+    duration:'30–35 minutes',
+    intro:'Peak phase gym work drops significantly in intensity. You are NOT trying to get stronger right now — you\'re maintaining what you\'ve built and staying injury-free. Heavy loading stops. Focus shifts to movement quality, injury prevention, and keeping muscles activated. No delayed onset muscle soreness (DOMS) before race prep.',
+    exercises:[
+      { name:'Goblet Squat (moderate)', sets:'2 sets × 12 reps', detail:'Back to a lighter weight. Focus on movement quality. Slow and controlled. This is maintenance — not a strength session.', tip:'Keep the movement pattern sharp. No need to grind heavy sets.' },
+      { name:'Single-Leg Hip Bridge', sets:'2 sets × 15 reps each leg', detail:'Controlled. No added weight. Hold 2 seconds at top. Glutes stay engaged throughout.', tip:'Purpose: keep glutes firing. As run volume increases, this becomes more important.' },
+      { name:'Split Squat — Bodyweight', sets:'2 sets × 12 reps each leg', detail:'No weights. Just bodyweight. Focus on balance and control. This is about neuromuscular activation, not loading.', tip:'Light enough to do without fatigue. You don\'t want to be sore heading into your key sessions.' },
+      { name:'Lat Pulldown', sets:'2 sets × 15 reps', detail:'Light to moderate. Keep the swim muscles working.', tip:'Maintain swim strength. Light and controlled.' },
+      { name:'Plank', sets:'2 sets × 60 seconds', detail:'Hold a strong plank. You should be able to do 60 seconds comfortably by now.', tip:'Core stays active. Non-negotiable for race day.' },
+      { name:'Calf Raises', sets:'2 sets × 20 reps each leg', detail:'Single leg, bodyweight only. Full range. Slow.', tip:'Injury prevention. Keep these going right up until race week.' },
+    ],
+    finisher:'10 min mobility: hip flexors, quads, hamstrings, calves, thoracic spine rotation. The more you stretch now, the better you\'ll feel on race day.'
+  },
+  taper: {
+    label:'Taper — Mobility & Activation Only',
+    phase:'Weeks 25–28 · Optional, keep it very easy',
+    duration:'20–25 minutes maximum',
+    intro:'STOP all heavy gym work in taper. No weights that cause soreness. The gym in taper is purely about keeping muscles activated and maintaining mobility. Think of this as a movement practice, not a workout. If you\'re feeling tired, skip the gym entirely — a rest day is more valuable than a light session at this point.',
+    exercises:[
+      { name:'Bodyweight Squat', sets:'2 sets × 15 reps', detail:'Slow and deliberate. Feel the movement. No weight. Just keep the legs firing.', tip:'Activation only. Should feel easy.' },
+      { name:'Single-Leg Hip Bridge', sets:'2 sets × 12 reps each leg', detail:'Glute activation. Bodyweight. Hold 2 seconds at top.', tip:'Keep the glutes switched on for race day.' },
+      { name:'Plank', sets:'2 sets × 45 seconds', detail:'Light core activation. Don\'t push to max.', tip:'Core maintenance only.' },
+      { name:'Calf Raises', sets:'2 sets × 15 reps each leg', detail:'Bodyweight. Keep Achilles healthy.', tip:'Injury prevention right up to race day.' },
+    ],
+    finisher:'15 min full body mobility routine. Race week: hip flexors, quads, hamstrings, glutes, shoulders, thoracic spine. Feel free and mobile going into race day.'
+  }
+};
+
+// ── WEEK STRUCTURE HELPERS ──
+const S=(type,label,icon,cc,detail,mins,key=false,coachTip='',logNote='')=>({type,label,icon,cc,detail,mins,key,coachTip,logNote});
+const SWIM =(d,m,tip='',note='',k=false)=>S('swim','Swim','🏊','swim-c',d,m,k,tip,note);
+const RUN  =(d,m,tip='',note='',k=false)=>S('run','Run','🏃','run-c',d,m,k,tip,note);
+const BIKE =(d,m,tip='',note='',k=false)=>S('bike','Ride','🚴','bike-c',d,m,k,tip,note);
+const BRICK=(d,m,tip='',note='')        =>S('brick','Brick','🧱','brick-c',d,m,true,tip,note);
+const GYM  =(d,m,tip='',note='')        =>S('gym','Gym','💪','str-c',d,m,false,tip,note);
+const REST =()                           =>S('rest','Rest','😴','rest-c','Full rest. No training. Recovery is where fitness is built.',null,false,'','');
+const RACE =(name)                       =>S('race','RACE DAY','🏁','bike-c',name,null,true,'Enjoy every moment. You have earned this.','Log how the race went — how each leg felt, nutrition, anything you would tell a coach.');
+const DAYS=['MON','TUE','WED','THU','FRI','SAT','SUN'];
+
+const EVENING_RIDES=[
+/* W1  */[null,null,{desc:'45min easy spin. 85–90rpm cadence focus.',mins:45},null,null,null,null],
+/* W2  */[null,null,null,{desc:'45min easy. 5×2min at 95rpm (high cadence) with 2min easy. Builds pedalling efficiency.',mins:45},null,null,null],
+/* W3  */[{desc:'50min easy aerobic. Zone 2. Good prep before Wednesday swim.',mins:50},null,null,{desc:'50min with 3×5min at Zone 3. First taste of structured intervals.',mins:50},null,null,null],
+/* W4  */[null,null,{desc:'45min easy spin. Legs may be tired — keep it relaxed.',mins:45},null,null,null,null],
+/* W5  */[null,null,null,null,null,null,null],
+/* W6  */[null,null,{desc:'40min very easy recovery spin. Flush the legs post-HBF.',mins:40},null,null,null,null],
+/* W7  */[{desc:'55min easy aerobic. Focus on smooth pedal stroke.',mins:55},null,null,{desc:'55min with 4×5min Zone 3 efforts. 3min easy between.',mins:55},null,null,null],
+/* W8  */[null,null,{desc:'55min. Include 10min at tempo effort in the middle.',mins:55},null,null,null,null],
+/* W9  */[{desc:'60min. 3×10min sweet spot effort (hard but sustainable). 5min easy between. This is where speed is built.',mins:60},null,null,{desc:'60min aerobic with 5×2min at 100rpm. Active recovery.',mins:60},null,null,null],
+/* W10 */[null,null,{desc:'60min. 4×8min at Zone 3. Target 28km/h on the trainer.',mins:60},null,null,null,null],
+/* W11 */[null,null,{desc:'40min very easy. Deload week — keep it light.',mins:40},null,null,null,null],
+/* W12 */[{desc:'60min. 2×20min at steady tempo (Zone 3). Key interval for 70.3 fitness.',mins:60},null,null,{desc:'60min aerobic. Smooth and steady.',mins:60},null,null,null],
+/* W13 */[null,null,{desc:'60min. 3×12min at Zone 3. Minimal rest (3min). Building bike endurance.',mins:60},null,null,null,null],
+/* W14 */[{desc:'60min. 5×6min hard efforts (Zone 4). 4min recovery. Builds top-end power.',mins:60},null,null,{desc:'60min aerobic recovery spin.',mins:60},null,null,null],
+/* W15 */[null,null,{desc:'40min very easy. Deload week.',mins:40},null,null,null,null],
+/* W16 */[{desc:'60min. 3×15min at race effort (Zone 3). 5min easy between. Race pace simulation.',mins:60},null,null,{desc:'60min aerobic. Smooth pedalling.',mins:60},null,null,null],
+/* W17 */[null,null,{desc:'60min. 2×20min at race effort. This is the evening ride that makes race day feel manageable.',mins:60},null,null,null,null],
+/* W18 */[null,null,{desc:'40min easy. End of Build 2 deload.',mins:40},null,null,null,null],
+/* W19 */[{desc:'55min. 3×12min at race effort. Sharp and controlled.',mins:55},null,null,{desc:'55min aerobic. Relaxed cadence.',mins:55},null,null,null],
+/* W20 */[null,null,{desc:'50min. 4×8min at race effort. Keep legs fresh for half marathon.',mins:50},null,null,null,null],
+/* W21 */[null,null,null,null,null,null,null],
+/* W22 */[null,null,{desc:'45min easy recovery. Post half marathon — flush the legs.',mins:45},null,null,null,null],
+/* W23 */[{desc:'55min. 2×20min at race effort. Last big interval block.',mins:55},null,null,null,null,null,null],
+/* W24 */[null,null,{desc:'50min. 3×10min race effort. Last quality session before taper.',mins:50},null,null,null,null],
+/* W25 */[null,null,{desc:'30min very easy spin. Taper has begun — just keep the legs turning.',mins:30},null,null,null,null],
+/* W26 */[null,null,{desc:'25min easy. Short and gentle.',mins:25},null,null,null,null],
+/* W27 */[null,null,null,null,null,null,null],
+/* W28 */[null,null,null,null,null,null,null],
+];
+
+const WEEKS=[
+{phase:'Build 1',type:'normal',weekType:'A',note:'First week of structured Build 1. After 4 months of base you are ready for this. Note the new weekly structure — Monday easy run, Tuesday gym, Wednesday swim, Thursday tempo run, Friday structured bike, Saturday long ride. Fill in every session log — it takes 2 minutes and gives us everything we need for your 4-week review.',days:[
+  RUN('Easy 8km. Zone 2 — you should be able to hold a full conversation the entire run.',50,'💡 Zone 2 means genuinely easy. If you are breathing hard, slow down. Protect this session.','Log how your legs felt. Note your resting HR this morning before getting out of bed.'),
+  GYM('Build 1 gym session — see Gym tab for full exercises, sets and reps. Focus on learning the movements with good form this week.',45,'💡 Gym is about movement quality right now. Do not chase heavy weights. Perfect the pattern first.','Log each exercise with the weight used and reps completed. This is your Week 1 baseline — everything is tracked from here.'),
+  SWIM('2km pool. 400m warm-up, 6×200m at steady pace, 200m cool-down.',52,'💡 Focus on a high elbow catch and long strokes. Swim smooth, not hard.','Note your pace per 100m and how your stroke felt. Any shoulder tightness? Flag it.'),
+  RUN('Tempo run: 8km total — 2km easy warm-up, 4km at tempo pace (5:00–5:10/km), 2km easy cool-down.',50,'💡 Tempo pace = you can speak a few words but not hold a conversation. Zone 3–4. Purposeful.','Log your tempo km splits. What pace did you hold? Sustainable or a struggle?'),
+  BIKE('Structured ride: 55min — 10min warm-up, 3×8min Zone 3, 3min easy between, 10min cool-down.',55,'💡 Zone 3 on the bike should feel like working but in control. Note your speed during the efforts.','Log your average speed during each effort. This is your Week 1 bike benchmark — track this improving across the season.',false),
+  BIKE('Long ride: 35km. Fuel at 15km and 25km. Drink consistently. Aim 26km/h average.',85,'💡 Eat before you are hungry, drink before you are thirsty. Practice this every long ride — it IS your race day nutrition plan.','Log total distance, average speed, and what you ate and drank. Most important log entry of the week.',true),
+  REST(),
+]},
+{phase:'Build 1',type:'normal',weekType:'B',note:'Week 2 — long run Monday (12km), interval session Thursday, and your very first brick Saturday. The brick will feel strange. Log every session — especially the brick. We need your first impressions.',days:[
+  RUN('Long run: 12km at easy Zone 2 pace. Embarrassingly easy the whole way.',72,'💡 Long runs build your aerobic engine. The pace should feel very easy. Zone 2 only — no heroics.','Log total distance, pace, and how your legs felt at the end. Any tightness in calves or knees?'),
+  GYM('Build 1 gym session. Week 2 — start adding small amounts of weight if last week felt comfortable.',45,'💡 Add weight only when the movement feels solid. Quality over load every time.','Log each exercise, weight and reps. Compare to Week 1 — are you moving better?'),
+  SWIM('2km. 300m warm-up, 8×100m at comfortably hard effort with 20sec rest, 300m cool-down.',52,'💡 The 100m reps should feel like a 7/10 effort. Fast enough to feel it, controlled enough to hold across all 8.','Log your 100m rep times. Are they consistent across all 8 or do you fade?'),
+  RUN('Interval run: 7km total — 2km warm-up, 5×600m at 4:50/km with 90sec easy jog, 2km cool-down.',48,'💡 Intervals build raw speed. Hit the target pace on every rep — not just the first two.','Log each 600m split time. Which rep felt hardest? This tells us a lot about your current fitness.'),
+  BIKE('Structured ride: 55min — 10min warm-up, 4×6min Zone 3 with 3min easy, cool-down. Focus on 90rpm cadence.',55,'💡 High cadence (90rpm) is more efficient than grinding a big gear. Spin fast, push less hard.','Log your speed during efforts and whether you hit 90rpm. Cadence is a skill — track it improving.'),
+  BRICK('First ever brick! 25min easy bike → immediate 20min easy run. No target pace — just experience the transition.',55,'💡 Do not panic when the legs feel heavy on the run. Walk the first 30 seconds if needed. Every brick gets easier.','Log how the transition felt, your run pace, and how quickly the legs loosened up. This is your brick baseline.',true),
+  REST(),
+]},
+{phase:'Build 1',type:'normal',weekType:'A',note:'Week 3 — pushing the long ride to 40km. Friday structured bike gets harder. Tempo run Thursday. Keep all other sessions honest but not heroic.',days:[
+  RUN('Easy 9km. Zone 2. Relaxed and controlled.',54,'💡 Easy days must be easy. Protect this session.','Note your resting HR this morning. Flag any soreness from last week.'),
+  GYM('Build 1 gym session. Week 3 — add weight where last week felt too easy.',45,'💡 Building a strength foundation that protects you through 28 weeks. Take this seriously.','Log weights and reps. Any exercises that felt particularly strong or weak?'),
+  SWIM('2.2km. 400m warm-up, 3×400m at race pace with 45sec rest, 200m cool-down.',58,'💡 The 400m sets build race-specific swim endurance. Aim for 1:55/100m — your race pace target.','Log your 400m set times. Hitting 1:55/100m? Note any technique breakdown at the end of sets.'),
+  RUN('Tempo run: 9km total — 2km warm-up, 5km tempo at 5:00–5:10/km, 2km cool-down.',55,'💡 Five kilometres of tempo is a real effort. Start conservatively — the last 2km should be the hardest part.','Log your tempo splits km by km. Positive or negative split? Aim to finish stronger than you start.'),
+  BIKE('Structured ride: 55min — 10min warm-up, 2×12min Zone 3 with 5min easy, cool-down.',55,'💡 12 minutes at Zone 3 is a real sustained effort. This is the kind of work that moves the needle on bike speed.','Log your average speed during the 12min blocks. How did the second block compare to the first?'),
+  BIKE('Long ride: 40km. Fuel at 15km and 28km. Aim 26–27km/h. New personal best distance.',95,'💡 40km is a real achievement. Ride at a pace you could sustain for much longer — controlled and steady.','Log distance, speed, nutrition consumed, and how your legs felt at the end. Flag any saddle discomfort.',true),
+  REST(),
+]},
+{phase:'Build 1',type:'normal',weekType:'B',note:'Week 4 — HBF is in 3 weeks. Long run 13km Monday. Build normally but keep Saturday brick moderate. Interval session Thursday.',days:[
+  RUN('Long run: 13km. Easy Zone 2 all the way.',78,'💡 13km at Zone 2 is proper half marathon base work. You should finish feeling like you had more in the tank.','Log pace, distance, and how you felt at 10km and finish. Any fatigue in the last 3km?'),
+  GYM('Build 1 gym session. Week 4 — push the weights a little more on squats and split squats.',45,'💡 Four weeks in and the movements should feel natural. Strength is coming.','Log weights and reps for every exercise. Note improvements from Week 1.'),
+  SWIM('2km. Include a continuous 1km set at race pace.',55,'💡 A continuous 1km at race pace is your first race-distance chunk. Aim for 1:53–1:55/100m.','Log your 1km time. Pace per 100m? How did you feel at 800m — still controlled or starting to fade?'),
+  RUN('Interval run: 8km total — 2km warm-up, 6×600m at 4:50/km with 90sec recovery, 2km cool-down.',52,'💡 Six reps. The extra rep from last week is where fitness is built. Hold the pace on rep 5 and 6.','Log each 600m split. Did you hold pace across all 6? Which rep was hardest?'),
+  BIKE('Structured ride: 55min — 10min warm-up, 3×10min Zone 3, 3min easy between, cool-down.',55,'💡 Three 10-minute blocks is a proper training stimulus. Consistent speed across all three is the goal.','Log speed during efforts. Improving on Week 1 and 2 numbers?'),
+  BRICK('35min bike → 25min run. Try to hit target run pace (5:45–6:00/km) in the second half.',75,'💡 The goal is to find race run pace off the bike. It will not feel easy — it is not supposed to.','Log bike speed, run pace, and how quickly you found your run rhythm.',true),
+  REST(),
+]},
+{phase:'Build 1',type:'race',noteType:'race',note:'🏁 HBF RACE WEEK — 24 May 2026. Pull back everything. No gym, no hard sessions. Short easy movement Mon–Thu only. Race Saturday morning. Run at Zone 2–3. Enjoy it.',days:[
+  RUN('Easy 6km shakeout. Zone 1–2 only.',36,'💡 This is not training. Just keep the legs moving. Do not push anything.','Note your resting HR. Feeling fresh and ready?'),
+  BIKE('20min very easy spin.',20,'💡 Easy means easy. HR below 120.','How are the legs feeling heading into race day?'),
+  SWIM('1km easy. No hard efforts.',28,'💡 Relax. Smooth strokes. Mental prep.','How are you feeling mentally?'),
+  RUN('15min easy jog + 4×30sec strides.',20,'💡 Strides wake the legs up without fatiguing them.','How sharp did the legs feel?'),
+  REST(),
+  RACE('🏃 HBF Run For a Reason — 24 May 2026. 12km. Run at Zone 2–3. Controlled and strong. Enjoy it!'),
+  REST(),
+]},
+{phase:'Build 1',type:'deload',noteType:'deload',note:'💚 Recovery week after HBF. Keep everything easy and short. Gym returns but lighter. Your body needs to absorb the race effort.',days:[
+  RUN('Easy 7km. Zone 2.',42,'💡 Post-race week. Keep HR low even if you feel fine.','Note your resting HR — is it back to normal post-race?'),
+  GYM('Build 1 gym — lighter this week. 2 sets instead of 3.',38,'💡 Deload gym is about maintaining the pattern, not building load.','Log weights — same or slightly lighter than last week.'),
+  SWIM('1.8km easy. Technique focus.',48,'💡 Slow down and feel every part of the stroke. Technique not pace.','Any technique improvements? How did the shoulders feel?'),
+  RUN('Easy 8km. Zone 2.',48,'💡 Still recovery week.','How are the legs feeling post HBF?'),
+  BIKE('45min easy spin.',45,'💡 Recovery pace only.','Note how the bike felt.'),
+  BIKE('Long ride: 30km easy. Rebuild rhythm.',72,'💡 Easy effort. Recovery ride. Enjoy it.','Log distance and how it felt.',true),
+  REST(),
+]},
+{phase:'Build 1',type:'normal',weekType:'A',note:'Back into it after recovery. Long ride steps to 45km Saturday. Friday ride gets harder. Seven weeks of consistent training behind you now.',days:[
+  RUN('Easy 9km. Zone 2.',54,'💡 Easy day. Do not let it creep into Zone 3.','Note resting HR and general energy levels.'),
+  GYM('Build 1 gym session. Back to full 3 sets. Add weight where sessions felt easy.',45,'💡 Last two weeks of Build 1 gym. Make the most of these before the program upgrades.','Log all exercises and weights. You should be noticeably stronger than Week 1.'),
+  SWIM('2.2km. 400m warm-up, 6×200m descending effort — each one slightly faster, 200m cool-down.',58,'💡 Descending efforts teach pace control and finishing strong — exactly what you need in a race.','Log your 200m times. Were they actually getting faster across all 6?'),
+  RUN('Tempo run: 9km — 2km warm-up, 5km tempo at 4:55–5:05/km, 2km cool-down.',55,'💡 Aim slightly faster than Week 3 tempo. Even 5 seconds per km faster is real progress.','Log tempo splits. Compare to Week 3 — are you faster at the same effort?'),
+  BIKE('Structured ride: 60min — 10min warm-up, 4×8min Zone 3 with 3min easy, cool-down.',60,'💡 Four efforts at Zone 3. Maintain consistent speed across all four.','Log speed during each effort. Consistency is the goal.'),
+  BRICK('40min bike → 25min run at target race pace (5:45–6:00/km).',80,'💡 This brick should feel like a mini race. Bike at race effort, then hold run pace.','Log bike speed, run pace, and how the transition felt. Improvement from Week 2?',true),
+  REST(),
+]},
+{phase:'Build 1',type:'normal',weekType:'B',note:'End of Build 1 — Week 8. Long ride 45km closes this phase. Long run 14km Monday. You have gone from a 20km max ride to 45km in 8 weeks. Next week the program upgrades.',days:[
+  RUN('Long run: 14km. Easy Zone 2. Longest run yet.',84,'💡 14km at Zone 2 is proper half marathon base work. You should finish feeling you had more in the tank.','Log pace, distance, and how you felt at the end. Any niggles?'),
+  GYM('Build 1 gym session — final week of this phase. Make it a strong session.',45,'💡 Last Build 1 gym session. Note your weights — next phase builds on these.','Log everything carefully. This is your Build 1 strength benchmark.'),
+  SWIM('2.4km. Include 1.9km continuous at race pace — your first full race distance swim.',65,'💡 1.9km non-stop at race pace. This is the Busselton swim distance. Time it.','Log your 1.9km time and pace. How did you feel at 1km vs 1.9km? Landmark session.'),
+  RUN('Interval run: 8km total — 2km warm-up, 7×600m at 4:45/km with 90sec recovery, 2km cool-down.',52,'💡 Seven reps at 4:45/km is your fastest interval session yet. Hold the pace on every rep.','Log each 600m split. Were you able to hold 4:45 across all 7?'),
+  BIKE('Structured ride: 60min — 10min warm-up, 2×15min Zone 3 with 5min easy, cool-down.',60,'💡 15 minute Zone 3 blocks are serious training. This is where bike fitness is really built.','Log speed during the 15min efforts. Are you hitting 27km/h?'),
+  BIKE('Long ride: 45km. Fuel every 25min. Aim 27km/h. End of Build 1.',105,'💡 45km is more than double where you started. Ride controlled. Fuel perfectly. Be proud of this.','Log distance, speed, nutrition. Flag any saddle discomfort or knee issues.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'normal',weekType:'A',note:'Welcome to Build 2 — the most demanding phase. Volume and intensity step up. The gym upgrades to Build 2. Friday rides get harder. You will feel tired at times — that is the adaptation. Log everything.',days:[
+  RUN('Easy 10km. Zone 2.',58,'💡 Easy runs get more important as training volume rises. They flush fatigue without adding stress.','Note resting HR and energy levels. Elevated HR or flat feeling? Flag it.'),
+  GYM('Build 2 gym session — new exercises, heavier loading. See Gym tab.',50,'💡 Build 2 gym is a step up. New movements, more load. Quality reps not ego weight.','Log every exercise with weights and reps. This is your Build 2 Week 1 benchmark.'),
+  SWIM('2.4km. 400m warm-up, 4×400m at race pace with 45sec rest, 200m cool-down.',65,'💡 Race pace 400m sets are specific training for the Busselton swim. Even pace across all 4.','Log your 400m set times. Consistent? Any drift across the 4 sets?'),
+  RUN('Tempo run: 10km total — 2km warm-up, 6km tempo at 4:55/km, 2km cool-down.',62,'💡 Six kilometres of tempo is a serious session. This builds the fitness to run 21km off the bike.','Log tempo splits. Compare to Build 1 — you should be faster at the same effort now.'),
+  BIKE('Structured ride: 60min — 10min warm-up, 3×10min Zone 3–4 with 4min easy, cool-down.',60,'💡 Zone 3–4 efforts are harder than Zone 3 only. You should feel genuinely working.','Log speed during efforts. Target 27–28km/h on the trainer.'),
+  BRICK('50min bike → 30min run. First proper long brick. Wear race kit. Fuel on the bike.',95,'💡 50 minutes on the bike before a run is starting to feel like race day. Log every detail.','Log bike speed, run pace, how transition felt, and what you ate on the bike.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'normal',weekType:'B',note:'Long ride steps to 55km — more than half race distance. Long run 15km Monday. Interval session Thursday. Big week.',days:[
+  RUN('Long run: 15km. Easy Zone 2.',90,'💡 15km at Zone 2 is a real long run. Take water. Finish feeling like you had 3–4km more in the tank.','Log pace, distance, and how you felt at 10km and 15km. Any tightness in hips or calves?'),
+  GYM('Build 2 gym. Week 2 — add small amounts of weight if last week felt solid.',50,'💡 Progressive overload — a little more weight each week. That is how strength is built.','Log weights and reps. Improvement from Week 9?'),
+  SWIM('2.5km. 400m warm-up, 3×500m at race pace with 1min rest, 100m cool-down.',68,'💡 500m sets simulate what the race swim will feel like in chunks. Control your effort.','Log 500m set times. Pace per 100m? How did you feel at the end of each set?'),
+  RUN('Interval run: 9km total — 2km warm-up, 6×800m at 4:45/km with 2min recovery, 2km cool-down.',58,'💡 800m intervals need pacing discipline. Do not sprint the first one.','Log each 800m split. Were you able to hold 4:45 across all 6?'),
+  BIKE('Structured ride: 60min — 10min warm-up, 2×18min Zone 3 with 5min easy, cool-down.',60,'💡 18 minute blocks are serious sustained efforts — sweet spot training, the most effective bike fitness zone.','Log speed during the 18min efforts. Consistency between block 1 and 2 is the goal.'),
+  BIKE('Long ride: 55km. More than half race distance. Fuel every 25min. Aim 27km/h.',125,'💡 55km on race nutrition is excellent practice. Eat and drink exactly as you plan to on race day.','Log distance, speed, total nutrition consumed, and how you felt at 40km vs the end.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'deload',noteType:'deload',note:'💚 Planned deload — pull back 25% on volume. Gym goes lighter. Body needs to absorb 10 weeks of work.',days:[
+  RUN('Easy 8km. Zone 2.',48,'💡 Deload week — genuine easy effort.','How is the body feeling after 10 weeks?'),
+  GYM('Build 2 gym — 2 sets only. Lighter load.',38,'💡 Deload gym. Maintenance only.','Log weights — slightly less than last week.'),
+  SWIM('2km easy. Technique work only.',52,'💡 Slow down and focus on stroke mechanics.','Any technique improvements when you slow down?'),
+  RUN('Easy 9km.',54,'💡 Easy the whole way.','Mid-week energy check.'),
+  BIKE('45min easy spin.',45,'💡 Recovery pace only.','Note how the legs feel on a recovery week.'),
+  BRICK('35min easy bike → 20min easy run.',65,'💡 Deload brick — everything easy.','How do the legs feel at reduced load?',true),
+  REST(),
+]},
+{phase:'Build 2',type:'normal',weekType:'A',note:'Back up after deload. Long ride 60km. Friday ride gets more race-specific. Book an open water swim this month.',days:[
+  RUN('Easy 10km. Zone 2.',58,'💡 Back to normal after deload. Legs should feel fresh.','Note energy levels — deload should have you feeling good.'),
+  GYM('Build 2 gym. Full load returns. Push from pre-deload levels.',50,'💡 Post-deload you should feel stronger. That is supercompensation.','Log weights — at or above pre-deload levels.'),
+  SWIM('2.5km. 1.9km continuous at race pace (timed), then 600m cool-down.',68,'💡 Time your 1.9km set. Compare to Week 8. You should be faster.','Log your 1.9km time. Improvement from Week 8?'),
+  RUN('Tempo run: 10km — 2km warm-up, 6km tempo at 4:50/km, 2km cool-down.',62,'💡 Aim slightly faster than Week 9 tempo. The fitness is building.','Log tempo splits. Improvement on Week 9?'),
+  BIKE('Structured ride: 60min — 10min warm-up, 3×12min Zone 3 with 4min easy, cool-down.',60,'💡 Three 12-minute blocks. No fading in the last one.','Log speed in each block. Any drop in block 3 vs block 1?'),
+  BIKE('Long ride: 60km. Three-quarter race distance. Fuel every 25min. Aim 27–28km/h.',135,'💡 60km is a landmark. You are riding further than you ever have.','Log distance, speed, nutrition, and how you felt at 45km vs the finish.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'normal',weekType:'B',note:'Big brick week. Saturday — 60min bike + 35min run. Wear full race kit. Use race nutrition. Treat it like race day.',days:[
+  RUN('Long run: 16km. Easy Zone 2.',96,'💡 16km at Zone 2. Respect the distance. Fuel if over 75 minutes.','Log pace and how you felt at 12km and 16km. Any form breakdown late in the run?'),
+  GYM('Build 2 gym. Strong legs session — push the squats, Bulgarian splits and deadlifts.',50,'💡 Strong glutes = faster bike and healthier run. This directly contributes to race day.','Log weights and reps.'),
+  SWIM('2.5km. Open water if possible. Sighting practice every 6–8 strokes.',68,'💡 Open water sighting feels awkward at first. Practice lifting eyes without breaking stroke rhythm.','Pool or open water? Note how sighting felt.'),
+  RUN('Interval run: 9km total — 2km warm-up, 5×1km at 4:50/km with 2min recovery, 2km cool-down.',58,'💡 1km intervals build race-specific speed endurance. Hold the pace on rep 4 and 5.','Log each 1km split. Are you able to hold 4:50 across all 5?'),
+  BIKE('Structured ride: 60min — 10min warm-up, 4×10min Zone 3 with 3min easy, cool-down.',60,'💡 Four 10-minute efforts is a big load. Last effort should feel hardest — that means you paced it right.','Log speed in each effort. Is block 4 still close to block 1?'),
+  BRICK('60min bike → 35min run at race pace. Wear race kit. Full race nutrition on the bike.',115,'💡 Race day rehearsal. Treat every detail like December 5. What you learn here shapes your race strategy.','Log bike speed, run pace per km, transition time, full nutrition consumed. Most important log entry yet.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'normal',weekType:'A',note:'Long ride targets 65km — nearly three-quarters of race distance. Fuel perfectly. Friday ride continues getting more race-specific.',days:[
+  RUN('Easy 11km. Zone 2.',65,'💡 Easy day after a big brick week. Let the body recover.','Note how the legs feel after last week. Still carrying fatigue or fresh?'),
+  GYM('Build 2 gym. Add weight on the main lifts.',50,'💡 Consistent progression on the weights.','Log weights. Improvement from Week 13?'),
+  SWIM('2.5km. 500m warm-up, 5×300m at race pace with 30sec rest, 200m cool-down.',68,'💡 Shorter rest intervals make these harder. Body adapts to recovering quickly — useful in race conditions.','Log 300m set times. Consistent across all 5?'),
+  RUN('Tempo run: 11km total — 2km warm-up, 7km tempo at 4:50/km, 2km cool-down.',67,'💡 Seven kilometres of tempo. This builds the fitness to run 21km off the bike.','Log tempo splits. Negative splitting? That is the goal.'),
+  BIKE('Structured ride: 60min — 10min warm-up, 2×20min at race effort, 5min easy between, cool-down.',60,'💡 Two 20-minute blocks at race effort is the most specific bike training you can do.','Log your speed during the 20min efforts. Holding 27km/h consistently?'),
+  BIKE('Long ride: 65km. Fuel every 25min. Aim 27–28km/h.',140,'💡 65km and you are not at peak yet. Ride controlled. Arrive home feeling like you had 10km more.','Log distance, speed, nutrition, how you felt at 50km. Flag any saddle or knee issues.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'deload',noteType:'deload',note:'💚 Second deload of Build 2. Lighter gym. Everything pulled back. Absorb the work before the peak volume weeks.',days:[
+  RUN('Easy 8km. Zone 2.',48,'💡 Deload week — genuine easy effort.','How is the body feeling after 14 weeks?'),
+  GYM('Build 2 gym — 2 sets, lighter load.',38,'💡 Deload gym. Maintenance only.','Log weights — slightly less than last week.'),
+  SWIM('2km easy. Technique work.',52,'💡 Slow down and focus on stroke mechanics.','Any technique improvements when you slow down?'),
+  RUN('Easy 9km.',54,'💡 Easy the whole way.','How are the legs feeling mid-week?'),
+  BIKE('45min easy spin.',45,'💡 Recovery pace only.','Note how the legs feel on a recovery week.'),
+  BRICK('40min easy bike → 20min easy run.',72,'💡 Deload brick — everything easy.','Log the deload brick.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'normal',weekType:'B',note:'Breakthrough long ride — 70km. Never ridden this far. This is the session that builds belief that 90km is possible on race day.',days:[
+  RUN('Long run: 17km. Easy Zone 2.',102,'💡 17km at Zone 2 is a genuine long run. Fuel at 60 minutes. Take water.','Log pace, distance, and how you felt at 12km and 17km. Any late-run fatigue?'),
+  GYM('Build 2 gym. Last heavy session of this phase. Make it strong.',50,'💡 This is close to your peak strength session for the season. Push appropriately.','Log weights and reps. Note your peak weights for each exercise.'),
+  SWIM('2.5km. 1.9km continuous at race pace (timed), 600m cool-down. Compare to Week 12.',68,'💡 Time your 1.9km again. You should be faster than Week 12. Trust the swim fitness.','Log your 1.9km time. Improvement from Week 12?'),
+  RUN('Interval run: 10km total — 2km warm-up, 6×1km at 4:45/km with 2min recovery, 2km cool-down.',64,'💡 4:45/km for 1km reps is fast. These are the sessions that make race day running feel easier.','Log each 1km split. Were you able to hold 4:45 across all 6?'),
+  BIKE('Structured ride: 60min — 10min warm-up, 3×15min race effort with 4min easy, cool-down.',60,'💡 Three 15-minute race effort blocks. Hold 27km/h in every block.','Log speed in all three 15min efforts. Any drop in the third?'),
+  BIKE('Long ride: 70km. Your longest ever. Fuel like race day. Ride with confidence.',155,'💡 70km in training. 90km on race day with crowd energy is within reach. You have earned this.','Log everything — distance, speed, nutrition every 25min, how you felt at 50km and 70km.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'normal',weekType:'A',note:'Peak race simulation brick week. Saturday is the most important training session of the entire program — 75min bike + 40min run. Full race kit. Full race nutrition. Log every single detail.',days:[
+  RUN('Easy 11km. Zone 2.',65,'💡 Easy before the hardest brick of the program on Saturday.','Note how the legs feel. Fresh and ready for Saturday?'),
+  GYM('Build 2 gym session.',50,'💡 Strong gym session. You are close to your peak.','Log weights and reps.'),
+  SWIM('2.5km. 400m warm-up, 1.9km at race effort (timed), 100m cool-down.',68,'💡 Full race distance swim timed. You should feel comfortable at 1.9km now.','Log your 1.9km time and pace. How did you feel at 1.5km?'),
+  RUN('Tempo run: 11km — 2km warm-up, 7km tempo at 4:45–4:50/km, 2km cool-down.',67,'💡 Your fastest tempo target yet. The fitness is there — trust it.','Log tempo splits. At or under 4:50/km?'),
+  BIKE('Structured ride: 60min — 10min warm-up, 2×20min race effort with 5min easy, cool-down.',60,'💡 Two 20-minute race effort blocks — exactly what the race demands sustained over 90km.','Log speed in both 20min efforts. Holding 27–28km/h consistently?'),
+  BRICK('75min bike → 40min run at race pace. Full race kit. Full nutrition. Peak session of the season.',135,'💡 This is as close to race day as training gets. Bike nutrition, transition, run pacing. Treat every detail seriously.','Log absolutely everything — bike speed each 15min, transition time, run pace each 5min, full nutrition log.',true),
+  REST(),
+]},
+{phase:'Build 2',type:'deload',noteType:'deload',note:'💚 End of Build 2 recovery week. Gym very light. Half marathon is 3 weeks away — come into it fresh.',days:[
+  RUN('Easy 8km. Zone 2.',48,'💡 Deload after the hardest phase. Let the body absorb everything.','Note how the body feels. Still carrying fatigue from the peak brick?'),
+  GYM('Build 2 gym — very light, 2 sets only. Last Build 2 gym session.',35,'💡 Final Build 2 gym session. Light and easy.','Log weights. Note how much stronger you are than Week 9.'),
+  SWIM('2km easy.',52,'💡 Easy swim.','How does the body feel in the water after the deload?'),
+  RUN('Easy 9km.',54,'💡 Easy the whole way.','Energy levels this week vs last week?'),
+  BIKE('45min easy spin.',45,'💡 Recovery pace only.','How do the legs feel on a recovery week?'),
+  BRICK('35min easy bike → 20min easy run.',65,'💡 Easy deload brick.','',true),
+  REST(),
+]},
+{phase:'Peak',type:'normal',weekType:'B',note:'Peak phase begins. Gym switches to lighter Peak program. Half marathon is 3 weeks away. Fitness at its highest. Build the final run sharpness this week.',days:[
+  RUN('Long run: 18km. Easy Zone 2. Longest run of the program.',108,'💡 18km at Zone 2 is as long as it gets. The half marathon will feel manageable after this.','Log pace, distance, and how you felt at 12km and 18km. Your peak long run.'),
+  GYM('Peak gym session — lighter weights, maintenance focus. See Gym tab.',35,'💡 Peak phase gym is maintenance only. Do not try to build strength now.','Log weights — slightly less than Build 2 peak.'),
+  SWIM('2.5km easy. Technique and relaxation focus.',65,'💡 Easy swim in peak phase. Keep fitness ticking without fatigue.','How is the swim feeling? Comfortable at race pace?'),
+  RUN('Interval run: 9km total — 2km warm-up, 5×1km at 4:45/km with 2min recovery, 2km cool-down.',58,'💡 Sharp interval session 3 weeks before the half. These keep the legs fast.','Log each 1km split. Holding 4:45/km?'),
+  BIKE('Structured ride: 55min — 3×12min race effort with 4min easy.',55,'💡 Race effort blocks to stay sharp on the bike.','Log speed during efforts.'),
+  BRICK('55min bike → 30min run at race pace.',100,'💡 Good solid brick in peak phase.',  'Log bike speed and run pace. Comparing to Week 13?',true),
+  REST(),
+]},
+{phase:'Peak',type:'normal',weekType:'A',note:'Half marathon is 2 weeks away. Keep this week moderate — no long run, no intervals. Keep the legs fresh and sharp.',days:[
+  RUN('Easy 10km. Zone 2.',60,'💡 Two weeks out from the half marathon. Not the week to push runs.','How are the legs feeling heading into half marathon prep?'),
+  GYM('Peak gym session. Maintenance only.',35,'💡 Light gym. Stay loose and injury-free.','Log weights.'),
+  SWIM('2km easy.',52,'💡 Easy swim. No hard efforts.','How is the body feeling overall?'),
+  RUN('8km with 3km at half marathon target pace (5:30–5:40/km) in the middle.',48,'💡 A taste of race pace to keep the legs sharp without fatiguing them.','Log your race pace km splits. Feeling controlled at 5:30–5:40/km?'),
+  BIKE('50min — 3×8min at race effort. Sharp but not exhausting.',50,'💡 Stay sharp on the bike without adding fatigue before the half.','Log speed during efforts.'),
+  RUN('Easy 8km. Keep the legs fresh.',48,'💡 Easy run Saturday — saving legs for the half marathon.','How do the legs feel?'),
+  REST(),
+]},
+{phase:'Peak',type:'race',noteType:'race',note:'🏁 HALF MARATHON RACE WEEK — 11 October 2026. No gym. Taper hard. Rest Thursday and Friday. Race Saturday. Target 5:30–5:45/km. This IS your 70.3 run leg rehearsal.',days:[
+  RUN('8km very easy. Zone 1–2 only.',48,'💡 Race week — easy legs, fresh mind.','Resting HR and energy. Feeling ready?'),
+  BIKE('30min easy spin.',30,'💡 Very easy. HR below 120.','How are the legs feeling?'),
+  SWIM('1.2km easy.',35,'💡 Easy swim. Relax.','Mental state heading into the half?'),
+  REST(),
+  REST(),
+  RACE('🥈 Half Marathon — 11 Oct 2026. Target 5:30–5:45/km. Run your own race. This is your 70.3 run leg.'),
+  REST(),
+]},
+{phase:'Peak',type:'deload',noteType:'deload',note:'💚 Half marathon recovery. Rest Monday and Tuesday. Gym returns Wednesday. You have run a half — the 70.3 run leg is no longer the unknown.',days:[
+  REST(),
+  REST(),
+  GYM('Peak gym session. Easy load.',35,'💡 Post-race gym is gentle movement. Nothing heavy.','How is the body 2 days post half marathon?'),
+  RUN('Easy 8km. First run post half marathon.',48,'💡 Easy and relaxed. Legs may still be heavy.','How did the legs feel on first run back?'),
+  BIKE('45min easy spin.',45,'💡 Easy spin. Flush the legs.','Note how the body is recovering.'),
+  BRICK('50min bike → 25min run. Easy effort both legs.',88,'💡 First brick back after half marathon recovery.','Log how the legs felt. Any residual fatigue?',true),
+  REST(),
+]},
+{phase:'Peak',type:'normal',weekType:'A',note:'Final big bike week — 70km long ride. Last major volume session before taper. Make it count.',days:[
+  RUN('Easy 11km. Zone 2.',65,'💡 Easy run in peak phase.','How are the legs feeling 2 weeks post half marathon?'),
+  GYM('Peak gym session.',35,'💡 Maintenance gym. Stay loose and strong.','Log weights.'),
+  SWIM('2.5km. Race pace sets.',68,'💡 Keep the swim sharp. 1.9km race simulation if feeling good.','Log your swim pace. Still hitting 1:53–1:55/100m?'),
+  RUN('Tempo run: 10km — 2km warm-up, 6km tempo at 4:45/km, 2km cool-down.',62,'💡 Post half marathon your fitness is at its peak. This tempo should feel strong.','Log tempo splits. Running faster than Build 2 tempos?'),
+  BIKE('Structured ride: 55min — 2×18min race effort with 5min easy.',55,'💡 Race effort blocks to stay sharp heading into the last big ride.','Log speed during the 18min efforts.'),
+  BIKE('Long ride: 70km. Last major long ride. Fuel like race day.',155,'💡 70km for the second time. You should feel more comfortable than Week 16. Confidence in action.','Log distance, speed, nutrition, how you felt. Flag anything to address before December.',true),
+  REST(),
+]},
+{phase:'Peak',type:'normal',weekType:'B',note:'Last big brick of the program. After Saturday it is taper time. Leave everything on the road. Your final confidence session.',days:[
+  RUN('Long run: 16km. Easy Zone 2. Last long run before taper.',96,'💡 Last long run. Keep it easy. Maintaining fitness not building it.','Log pace and how the legs feel. Any fatigue from the season?'),
+  GYM('Peak gym — last session before taper phase.',35,'💡 Last gym session of any note. Taper gym is activation only from here.','Log weights. Note how much stronger you are than Build 1.'),
+  SWIM('2.5km. 1.9km ocean if weather allows.',68,'💡 Open water if possible. Race preparation — sighting, chop, conditions.','Pool or ocean? Note how the conditions swim felt.'),
+  RUN('Interval run: 8km — 2km warm-up, 5×1km at 4:45/km with 2min recovery, 2km cool-down.',52,'💡 Last interval session of the program. Run them fast and confident.','Log each 1km split. Your fastest intervals of the season?'),
+  BIKE('Structured ride: 50min — 3×10min race effort.',50,'💡 Sharp race effort to stay tuned before taper.','Log speed during efforts.'),
+  BRICK('70min bike → 35min run at race pace. Last major brick. Leave it all out there.',120,'💡 Final big brick. Last time you will feel this tired before race day. Log everything.','Log every detail — bike speed, run pace, nutrition, transition. Your final pre-race benchmark.',true),
+  REST(),
+]},
+{phase:'Taper',type:'deload',noteType:'deload',note:'TAPER BEGINS. Reduce volume 25%. Keep a little intensity — short sharp efforts only. No long efforts. Gym switches to activation only. Fitness is locked in.',days:[
+  RUN('Easy 8km. Zone 2.',48,'💡 Taper has begun. Keep running easy and consistent.','Note how the legs feel at the start of taper.'),
+  GYM('Taper gym — bodyweight activation only, 20–25min. See Gym tab.',22,'💡 Taper gym is purely activation. Keep muscles firing without fatigue.','How does the body feel at reduced load?'),
+  SWIM('1.8km easy with 4×50m at race pace.',48,'💡 Keep the swim sharp with a few fast efforts. Nothing exhausting.','Log swim pace. Still feeling strong in the water?'),
+  RUN('7km with 2km at race pace in the middle.',42,'💡 Just enough race pace to stay sharp.','Log your race pace km. Feeling comfortable at 5:30–5:40/km?'),
+  BIKE('45min easy with 3×5min at race effort.',45,'💡 Short race efforts to keep the legs tuned.','Log speed during the 5min efforts.'),
+  BIKE('45min easy ride.',45,'💡 Easy Saturday. Taper means letting go of volume.','How does it feel to have an easy Saturday?'),
+  REST(),
+]},
+{phase:'Taper',type:'deload',noteType:'deload',note:'Taper week 2. Drop volume another 20%. No brick sessions. You may feel flat or restless — taper madness is completely normal. Body is storing energy for race day. Do NOT add sessions.',days:[
+  RUN('Easy 6km.',36,'💡 Short easy run. Nothing more.','Note the taper feelings. Flat? Restless? Totally normal.'),
+  GYM('Taper gym — activation only. Optional if feeling fatigued.',20,'💡 If tired, skip the gym. Rest is more valuable.','Log if completed. How is the body feeling?'),
+  SWIM('1.5km easy.',40,'💡 Easy swim. Maintain the feel for the water.','How does the body feel in the water at reduced load?'),
+  RUN('5km easy + 4×30sec strides.',30,'💡 Strides keep the legs sharp without adding fatigue.','How sharp did the legs feel during the strides?'),
+  BIKE('25min very easy spin.',25,'💡 Very easy. Just keep the legs turning.','Note how the body feels.'),
+  RUN('Easy 4km jog. Keep the legs turning over.',24,'💡 Short easy Saturday jog.','How are the legs feeling with 2 weeks to go?'),
+  REST(),
+]},
+{phase:'Taper',type:'deload',noteType:'deload',note:'Race week minus 1. Very short sessions Mon–Wed only. Thu–Sun complete rest. Check all race gear, lay out transition bags, visualise the Busselton course. Eat well, sleep well, stay off your feet.',days:[
+  RUN('5km easy jog.',28,'💡 Last week before race week. Easy only.','Resting HR — is it dropping? Sign the body is ready.'),
+  BIKE('20min easy spin with 2×2min at race effort.',20,'💡 Two tiny race efforts to keep the legs sharp. That is all.','Note how the legs feel at race effort for 2 minutes.'),
+  SWIM('1km easy in the ocean if possible.',28,'💡 Ocean swim in race week prep. Feel the conditions. Stay relaxed.','Ocean or pool? How did it feel?'),
+  REST(),
+  REST(),
+  REST(),
+  REST(),
+]},
+{phase:'Taper',type:'race',noteType:'race',note:'🔱 RACE WEEK — Ironman 70.3 Busselton, 5 December 2026. Mon: very easy jog. Tue: easy ocean swim. Wed: 15min spin to check the bike. Thu–Fri: complete rest. Eat well, hydrate, sleep early. Everything since January has been building to this.',days:[
+  RUN('4km very easy jog. Just move the legs.',22,'💡 Last run before race day. Enjoy it. Feel how good the legs feel on fresh legs.','Resting HR and mental state.'),
+  SWIM('600m easy in the ocean.',18,'💡 Short ocean swim. Get comfortable in the water. Relax.','How did the ocean feel? Conditions?'),
+  BIKE('15min easy spin. Final bike check — tyres, gears, brakes, nutrition mount.',15,'💡 Check the bike is race-ready. Tyres inflated, gears shifting, everything bolted tight.','Is the bike race-ready? Anything that needed fixing?'),
+  REST(),
+  REST(),
+  RACE('🔱 IRONMAN 70.3 BUSSELTON — 5 Dec 2026. 1.9km Swim + 90km Bike + 21.1km Run. Trust every session. Trust yourself. Enjoy every moment.'),
+  REST(),
+]},
+];
+
+// ── MILESTONES ──
+const MILESTONES=[
+  ['May 2026','2km pool','35km','10km (HBF race)','Build 1 — first bricks, long rides start',''],
+  ['June 2026','2.2km pool','45km','11km','Brick sessions building',''],
+  ['July 2026','2.5km pool','55–60km','12km','Long rides serious, gym getting heavier',''],
+  ['Aug 2026','2.5km pool','65km','13km','Peak volume, race-sim bricks',''],
+  ['Sep 2026','2.5km pool + OW','70km','14km','Biggest brick sessions',''],
+  ['Oct 2026','2.5km OW/pool','70km','21.1km (Half Marathon)','Half marathon race 11 Oct',''],
+  ['Nov 2026','2km easy','45–55km','10km','Taper — gym activation only',''],
+  ['5 Dec 2026','1.9km ocean','90km','21.1km','🔱 RACE DAY','race'],
+];
+
+// ── KEY SESSIONS ──
+const KEY_SESSIONS=[
+  {icon:'🧱',sport:'brick',tag:'tag-brick',name:'Bike-to-Run Brick Session',when:'Every Saturday from Week 1',desc:'The single most important session type in triathlon training. Immediately after finishing the bike, rack it and run — no rest. Legs feel like concrete for the first 5–10 minutes. Train this feeling weekly and it becomes familiar, then manageable, then almost comfortable. Build from 25min bike + 20min run up to 75min bike + 40min run.'},
+  {icon:'🚴',sport:'bike',tag:'tag-bike',name:'Long Ride (Progressive Build)',when:'Alternate Saturdays — 35km → 70km',desc:'The bike is the biggest gap and the longest leg. Every long ride: fuel every 25 minutes and drink consistently. Ride in an aero-ish position. The goal is not just distance — it\'s learning to fuel yourself, pace yourself, and arrive at the run still able to move. Never skip a long ride.'},
+  {icon:'💪',sport:'str',tag:'tag-str',name:'Tuesday Gym Session',when:'Every Tuesday — morning or afternoon',desc:'One session per week, 40–50 minutes. Triathlon-specific: glutes, single-leg stability, hip strength, core, calf raises. Progresses across 4 phases from foundation movements to power to maintenance to activation. Stops heavy work 4 weeks before race day. If life gets busy, gym is the first to drop — not the bike or the brick.'},
+  {icon:'🌊',sport:'swim',tag:'tag-swim',name:'Open Water Swim',when:'Monthly from October (warmer weather)',desc:'Pool swimming and ocean swimming are completely different. Practice sighting every 6–8 strokes, bilateral breathing, and group starts. His pool strength will transfer well — just needs OW exposure before race day. A handful of ocean sessions in October and November will make the Geographe Bay swim feel familiar.'},
+  {icon:'🔥',sport:'brick',tag:'tag-brick',name:'Race Simulation Day',when:'Weeks 13, 17, and 24',desc:'Full dress rehearsal. Race kit, race nutrition, race effort. 60–75min bike + 30–40min run. These sessions confirm that you can actually do this. They are hard and they\'re supposed to be — and they show you that you have what it takes.'},
+  {icon:'🏃',sport:'run',tag:'tag-run',name:'Race Pace Mid-Week Run',when:'Every Thursday from Week 2',desc:'Within the Thursday run, include 4–6km at target 70.3 run pace (5:30–6:00/km). Running at race pace when fresh trains your body and brain to find that gear automatically on race day. Don\'t always run easy.'},
+  {icon:'⛽',sport:'bike',tag:'tag-bike',name:'Race Nutrition Training',when:'Every long ride and brick from Week 1',desc:'Your gut needs to be trained to absorb nutrition at race intensity. Eat every 25–30 minutes on every long ride and brick. Find what works. Nothing new on race day — you want a completely dialled nutrition plan tested dozens of times by December.'},
+];
+
+const RD_TIMELINE=[
+  {time:'4:30am',desc:'Wake up. Eat breakfast: oats + banana + coffee + 500ml water. Nothing new.'},
+  {time:'5:15am',desc:'Drive to transition. Rack bike. Set up T1 and T2 gear bags.'},
+  {time:'6:15am',desc:'Body marking, wetsuit on, 10min warm-up jog + 5min easy ocean swim.'},
+  {time:'7:00am',desc:'🏊 SWIM START — 1.9km Geographe Bay. Start wide. Sight every 8 strokes. Controlled effort.'},
+  {time:'~7:42am',desc:'T1 — Wetsuit off fast, helmet + glasses on, mount bike. Smooth, not rushed.'},
+  {time:'7:45am',desc:'🚴 BIKE — 90km. First 15km easy. Settle in. Fuel at 20, 40, 60, 75km. Stay aero.'},
+  {time:'~10:45am',desc:'T2 — Rack bike, helmet off, runners on, race belt, hat. Go.'},
+  {time:'10:48am',desc:'🏃 RUN — 21.1km. First 2km easy — let the legs wake up. Find race pace.'},
+  {time:'~1:10pm',desc:'🔱 FINISH LINE — Busselton Jetty. You are an Ironman 70.3 finisher.'},
+];
+const RD_SPLITS=[
+  {leg:'🏊 Swim 1.9km',target:'38–44 min',note:'Start controlled, negative split'},
+  {leg:'T1',target:'3–5 min',note:'Smooth is fast'},
+  {leg:'🚴 Bike 90km',target:'3:20–3:30 hr',note:'26–27km/h avg — conservative saves the run'},
+  {leg:'T2',target:'2–3 min',note:'Calm and efficient'},
+  {leg:'🏃 Run 21.1km',target:'2:05–2:15 hr',note:'6:00–6:30/km — expect pace drop off bike'},
+  {leg:'🔱 Total',target:'6:15–6:45 hr',note:'First 70.3 — finish strong, not just fast'},
+];
+const RD_GEAR=['Wetsuit — essential for Geographe Bay ocean swim','Tri suit or chamois shorts + race top','Aero or road helmet (mandatory)','Cycling shoes with race laces','Running shoes (fully tested — nothing new)','Goggles + spare pair','Race number belt','Sunglasses (bike + run)','GPS watch','4 gels + 2 bars + electrolyte tabs for bike','2× full water bottles on bike','Body Glide (neck, underarms, inner thighs)','Sunscreen — apply before wetsuit','Transition bags labelled T1, T2','Bike in perfect mechanical condition (check night before)'];
+const RD_NUTRITION=[
+  {time:'Night before',desc:'Carb-heavy dinner: pasta or rice + lean protein. Hydrate well all day.'},
+  {time:'Race morning',desc:'Oats + banana + black coffee + 500ml water. Eat 2.5–3hrs before swim start.'},
+  {time:'Swim',desc:'Nothing. Just race.'},
+  {time:'Bike — every 25–30min',desc:'Alternate gel and solid food (banana/bar). Aim for 60–80g carbs/hour. Drink 500–750ml/hour.'},
+  {time:'Run — every 20min',desc:'Gel every 20–25min. Grab water at every aid station. Try cola in the last 8km.'},
+  {time:'Non-negotiable rule',desc:'Never use anything on race day you haven\'t trained with. Start testing nutrition from Week 1.'},
+];
+const CHECKLIST=[
+  {text:'Complete first ever brick session',phase:'Build 1'},
+  {text:'Ride 35km without stopping',phase:'Build 1'},
+  {text:'Complete 1.9km non-stop swim — note the time!',phase:'Build 1'},
+  {text:'Complete HBF Run For a Reason (24 May)',phase:'Build 1'},
+  {text:'Ride 45km — new personal best',phase:'Build 1'},
+  {text:'Complete a 60min brick session',phase:'Build 2'},
+  {text:'Ride 60km for the first time',phase:'Build 2'},
+  {text:'Do an open water swim with sighting practice',phase:'Build 2'},
+  {text:'Ride 70km — new personal best',phase:'Build 2'},
+  {text:'Complete race-simulation brick (75min bike + 40min run)',phase:'Build 2'},
+  {text:'Test full race day nutrition on a long ride',phase:'Build 2'},
+  {text:'Complete the Half Marathon (11 October)',phase:'Peak'},
+  {text:'Complete final 70km long ride',phase:'Peak'},
+  {text:'Complete last big brick (70min bike + 35min run)',phase:'Peak'},
+  {text:'Do an ocean swim in race-like conditions',phase:'Peak'},
+  {text:'Check bike is race-ready (tyres, gears, brakes)',phase:'Taper'},
+  {text:'Lay out all race gear and do a dry-run transition',phase:'Taper'},
+  {text:'🔱 Cross the Ironman 70.3 Busselton finish line',phase:'Race Day'},
+];
+
+// ── REVIEW PERIODS ──
+const REVIEW_PERIODS = [
+  { label:'Block 1 — Weeks 1–4 (May)', key:'block1' },
+  { label:'Block 2 — Weeks 5–8 (Jun)', key:'block2' },
+  { label:'Block 3 — Weeks 9–12 (Jul)', key:'block3' },
+  { label:'Block 4 — Weeks 13–16 (Aug)', key:'block4' },
+  { label:'Block 5 — Weeks 17–20 (Sep)', key:'block5' },
+  { label:'Block 6 — Weeks 21–24 (Oct)', key:'block6' },
+  { label:'Block 7 — Weeks 25–28 (Nov–Dec)', key:'block7' },
+];
+
+const REVIEW_FIELDS = ['r-long-ride','r-long-run','r-long-swim','r-total-rides','r-total-runs','r-total-swims','r-bricks','r-gym','r-missed','r-run-pace','r-bike-speed','r-swim-pace','r-rhr','r-weight','r-brick-time','r-went-well','r-challenges','r-next-focus','r-injuries'];
+const STAR_KEYS = ['energy','consistency','bike','fitness'];
+let currentStars = { energy:0, consistency:0, bike:0, fitness:0 };
+
+// ── RENDER FUNCTIONS ──
+function daysBetween(a,b){return Math.round((b-a)/86400000);}
+
+function renderCountdowns(){
+  const pairs=[
+    {id:'hbf',date:RACES.hbf,barId:'hbf-bar',numId:'hbf-num',unitId:'hbf-unit',elId:'cd-hbf',start:new Date('2026-01-01')},
+    {id:'half',date:RACES.half,barId:'half-bar',numId:'half-num',unitId:null,elId:'cd-half',start:new Date('2026-01-01')},
+    {id:'im',date:RACES.im,barId:'im-bar',numId:'im-num',unitId:null,elId:'cd-im',start:new Date('2026-01-01')},
+  ];
+  pairs.forEach(r=>{
+    const days=daysBetween(TODAY,r.date);
+    const el=document.getElementById(r.elId);
+    const numEl=document.getElementById(r.numId);
+    if(days<0){numEl.textContent='Race Day!';}
+    else numEl.textContent=days;
+    const total=daysBetween(r.start,r.date);
+    const elapsed=daysBetween(r.start,TODAY);
+    document.getElementById(r.barId).style.width=Math.min(100,Math.max(2,(elapsed/total)*100))+'%';
+  });
+}
+
+function renderPhases(){
+  document.getElementById('phases-grid').innerHTML=PHASES.map(p=>{
+    let cls='next';
+    if(TODAY>=p.start&&TODAY<=p.end)cls='now';
+    else if(TODAY>p.end)cls='done';
+    return`<div class="ph ${cls}"><div class="ph-dot">${p.icon}</div><div class="ph-name">${p.name}</div><div class="ph-weeks">${p.weeks}</div><div class="ph-desc">${p.desc}</div></div>`;
+  }).join('');
+}
+
+let currentWeek=0;
+function setCurrentWeek(){
+  const diff=daysBetween(PROGRAM_START,TODAY);
+  currentWeek=diff>=0?Math.min(WEEKS.length-1,Math.floor(diff/7)):0;
+}
+
+async function renderWeek(){
+  const w=WEEKS[currentWeek];
+  document.getElementById('wn-label').textContent=`Week ${currentWeek+1} of ${WEEKS.length}`;
+  document.getElementById('wn-phase').textContent=w.phase;
+  const start=new Date(PROGRAM_START);start.setDate(start.getDate()+currentWeek*7);
+  const end=new Date(start);end.setDate(end.getDate()+6);
+  const fmt=d=>d.toLocaleDateString('en-AU',{day:'numeric',month:'short'});
+  document.getElementById('wn-dates').textContent=`${fmt(start)} — ${fmt(end)}`;
+
+  const phaseStarts={'Build 1':0,'Build 2':8,'Peak':18,'Taper':24};
+  const phaseLengths={'Build 1':8,'Build 2':10,'Peak':6,'Taper':4};
+  // Add drag hint and reset button
+  const hasChanges = JSON.stringify(getWeekOrder(currentWeek)) !== JSON.stringify([0,1,2,3,4,5,6]) ||
+                     Object.keys(getWeekSkips(currentWeek)).length > 0;
+  document.getElementById('wn-reset-btn').style.display = hasChanges ? 'inline-block' : 'none';
+
+  document.getElementById('wn-jump').innerHTML=Object.entries(phaseStarts).map(([name,wk])=>{
+    const inPhase=currentWeek>=wk&&currentWeek<wk+phaseLengths[name];
+    return`<button class="wn-jump-btn${inPhase?' active':''}" onclick="jumpToWeek(${wk})">${name}</button>`;
+  }).join('');
+
+  // Load week order and skips from storage
+  const weekOrder = getWeekOrder(currentWeek);
+  const weekSkips = getWeekSkips(currentWeek);
+
+  const typeIcons = {swim:'🏊',run:'🏃',bike:'🚴',brick:'🧱',gym:'💪',rest:'😴',race:'🏁'};
+
+  const cols = await Promise.all([0,1,2,3,4,5,6].map(async (colIndex) => {
+    const origDayIndex = weekOrder[colIndex]; // which original session slot is in this column
+    const day = w.days[origDayIndex];
+    const isSkipped = !!weekSkips[colIndex];
+    const isMoved = origDayIndex !== colIndex;
+
+    const isRest = day.type === 'rest';
+    const isRace = day.type === 'race';
+    const isGym  = day.type === 'gym';
+    const isKey  = day.key;
+
+    // Chip class
+    let chipCls = 'session-chip';
+    if(isRace) chipCls += ' race-day';
+    else if(isGym) chipCls += ' gym-day';
+    else if(isKey) chipCls += ' key-session';
+    if(isRest) chipCls += ' rest-chip';
+    if(isSkipped) chipCls += ' skipped-chip';
+
+    // Log data
+    const logKey = 'slog-w'+currentWeek+'-d'+colIndex;
+    const logData = JSON.parse(_ls.getItem(logKey)||'null');
+    const isLogged = !!logData;
+    if(isLogged) chipCls += ' logged-chip';
+
+    const logSummary = isLogged ? getSessionSummary(currentWeek, colIndex) : '';
+
+    // Evening ride
+    const eveRides = typeof EVENING_RIDES !== 'undefined' && EVENING_RIDES[currentWeek] ? EVENING_RIDES[currentWeek] : [];
+    const eve = eveRides[origDayIndex] || null;
+    const eveLogKey = 'evelog-w'+currentWeek+'-d'+colIndex;
+    const eveLogged = !!_ls.getItem(eveLogKey);
+
+    // Badges
+    const movedBadge  = isMoved  ? `<div class="chip-badge badge-moved">⇄ Moved</div>` : '';
+    const skippedBadge = isSkipped ? `<div class="chip-badge badge-skipped">⏭️ Skipped</div>` : '';
+    const loggedBadge  = isLogged  ? `<div class="chip-badge badge-logged">✅ Logged</div>` : '';
+
+    // Gym link
+    const gymLink = isGym ? `<div class="gym-link" onclick="openGymFromWeek()" style="font-size:10px;margin-top:4px;">View gym plan →</div>` : '';
+
+    // Action buttons
+    const logBtnLabel = isLogged ? '✏️ Edit' : '+ Log';
+    const canLog = !isRest && !isSkipped;
+    const logBtn  = canLog  ? `<button class="btn-chip log-btn ${isLogged?'logged':''}" onclick="openSlog(${currentWeek},${colIndex})">${logBtnLabel}</button>` : '';
+    const skipBtn = !isRace && !isSkipped ? `<button class="btn-chip skip-btn" onclick="skipSession(${colIndex})">⏭️ Skip</button>` : '';
+    const restoreBtn = (isMoved || isSkipped) ? `<button class="btn-chip restore-btn" onclick="restoreCol(${colIndex})">↩️ Reset</button>` : '';
+    const eveBtn = eve ? `<button class="btn-chip ${eveLogged?'log-btn logged':''}" onclick="toggleEveLog(${currentWeek},${colIndex},this)" style="font-size:9px;">🌙 ${eveLogged?'Eve ✓':'Eve log'}</button>` : '';
+
+    // Drag attributes — not on race days
+    const draggable = !isRace ? 'draggable="true"' : '';
+    const dragHandlers = !isRace ? `
+      ondragstart="onDragStart(event,${colIndex})"
+      ondragend="onDragEnd(event)"
+      ondragover="onDragOver(event,${colIndex})"
+      ondragleave="onDragLeave(event)"
+      ondrop="onDrop(event,${colIndex})"
+      ontouchstart="onTouchStart(event,${colIndex})"
+      ontouchmove="onTouchMove(event)"
+      ontouchend="onTouchEnd(event)"
+    ` : '';
+
+    // Coach tip (shortened)
+    const tipHtml = day.coachTip ? `<div class="chip-tip">${day.coachTip}</div>` : '';
+
+    // Evening section
+    const eveHtml = eve ? `<div class="eve-chip">
+      <div class="eve-chip-label">🌙 Optional Evening</div>
+      <div class="eve-chip-detail">${eve.desc} · ${eve.mins}min</div>
+    </div>` : '';
+
+    return `<div class="day-col">
+      <div class="day-label">${DAYS[colIndex]}</div>
+      <div class="${chipCls}" ${draggable} ${dragHandlers}>
+        ${movedBadge}${skippedBadge}${loggedBadge}
+        <div class="chip-type ${day.cc}">${typeIcons[day.type]||'📋'} ${day.label}</div>
+        <div class="chip-detail">${day.detail}</div>
+        ${day.mins ? `<div class="chip-dur">⏱ ${day.mins}min</div>` : ''}
+        ${tipHtml}
+        ${gymLink}
+        ${isLogged ? `<div class="chip-logged-summary">${logSummary}</div>` : ''}
+        <div class="chip-actions">${logBtn}${skipBtn}${eveBtn}${restoreBtn}</div>
+        ${eveHtml}
+      </div>
+    </div>`;
+  }));
+
+  document.getElementById('week-grid').innerHTML = cols.join('');
+
+  const noteEl=document.getElementById('week-note');
+  noteEl.className='week-note'+(w.noteType?' '+w.noteType:'');
+  const noteIcon=w.noteType==='deload'?'💚 RECOVERY WEEK':w.noteType==='race'?'🏁 RACE WEEK':`📋 WEEK ${currentWeek+1} FOCUS`;
+  // Count evening rides using the actual order so swapped sessions show correct eve rides
+  const eveRidesThisWeek = EVENING_RIDES[currentWeek] || [];
+  const eveCount = weekOrder.filter(origIdx => eveRidesThisWeek[origIdx]).length;
+  const eveNote = eveCount > 0 ? `<br><span style="color:var(--surf);font-size:12px;">🌙 ${eveCount} optional evening indoor ride${eveCount>1?'s':''} available this week — check the day cards.</span>` : '';
+  noteEl.innerHTML=`<h4>${noteIcon}</h4><p>${w.note}${eveNote}</p>`;
+  document.getElementById('btn-prev').disabled=currentWeek===0;
+  document.getElementById('btn-next').disabled=currentWeek===WEEKS.length-1;
+}
+
+async function changeWeek(dir){
+  currentWeek=Math.max(0,Math.min(WEEKS.length-1,currentWeek+dir));
+  await renderWeek();
+}
+async function jumpToWeek(wk){currentWeek=wk;await renderWeek();}
+
+// ── GYM TAB ──
+let currentGymPhase='build1';
+function showGymPhase(phase,btn){
+  currentGymPhase=phase;
+  document.querySelectorAll('#gym-phase-selector .wn-jump-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGym();
+}
+
+function renderGym(){
+  const g=GYM_PHASES[currentGymPhase];
+  document.getElementById('gym-content').innerHTML=`
+    <div class="review-card" style="margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+        <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;color:#c084fc;">${g.label}</div>
+        <div style="font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px;">${g.phase}</div></div>
+        <div style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.3);border-radius:8px;padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:#c084fc;">⏱ ${g.duration}</div>
+      </div>
+      <div class="modal-intro">${g.intro}</div>
+    </div>
+    ${g.exercises.map((ex,i)=>`
+    <div class="exercise-block">
+      <div class="ex-header">
+        <div class="ex-name">${i+1}. ${ex.name}</div>
+        <div class="ex-sets">${ex.sets}</div>
+      </div>
+      <div class="ex-body">
+        <div class="ex-detail">${ex.detail}</div>
+        <div class="ex-tip">💡 ${ex.tip}</div>
+      </div>
+    </div>`).join('')}
+    <div class="rest-note">🧊 Finish with: ${g.finisher}</div>
+  `;
+}
+
+function openGymFromWeek(){
+  // Determine which gym phase based on current week
+  let phase='build1';
+  if(currentWeek>=8&&currentWeek<18)phase='build2';
+  else if(currentWeek>=18&&currentWeek<24)phase='peak';
+  else if(currentWeek>=24)phase='taper';
+  document.querySelectorAll('#gym-phase-selector .wn-jump-btn').forEach((b,i)=>{
+    const phases=['build1','build2','peak','taper'];
+    b.classList.toggle('active',phases[i]===phase);
+  });
+  currentGymPhase=phase;
+  showTab('gym',document.querySelectorAll('.tab-btn')[1]);
+  renderGym();
+}
+
+// ── TARGETS ──
+function renderMilestones(){
+  document.getElementById('milestones-body').innerHTML=MILESTONES.map(m=>`
+    <tr class="${m[5]==='race'?'race-row':''}">
+      <td style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--white);">${m[0]}</td>
+      <td style="color:var(--surf);text-align:center;">${m[1]}</td>
+      <td style="color:var(--gold);text-align:center;">${m[2]}</td>
+      <td style="color:var(--green);text-align:center;">${m[3]}</td>
+      <td style="color:var(--muted);font-size:12px;">${m[4]}</td>
+    </tr>`).join('');
+}
+
+function renderKeySessions(){
+  document.getElementById('ks-list').innerHTML=KEY_SESSIONS.map(s=>`
+    <div class="ks-card"><div class="ks-icon">${s.icon}</div><div class="ks-body">
+      <div class="ks-name">${s.name}</div>
+      <span class="ks-tag ${s.tag}">${s.sport.toUpperCase()}</span>
+      <div class="ks-desc">${s.desc}</div>
+      <div class="ks-when">📅 ${s.when}</div>
+    </div></div>`).join('');
+}
+
+function renderRaceDay(){
+  document.getElementById('rd-timeline').innerHTML=RD_TIMELINE.map(t=>`<div class="tl-item"><div class="tl-time">${t.time}</div><div class="tl-desc">${t.desc}</div></div>`).join('');
+  document.getElementById('rd-splits').innerHTML=RD_SPLITS.map(s=>`<div class="split-row"><div><div class="split-leg">${s.leg}</div><div class="split-note">${s.note}</div></div><div class="split-target">${s.target}</div></div>`).join('');
+  document.getElementById('rd-gear').innerHTML=RD_GEAR.map(g=>`<li>${g}</li>`).join('');
+  document.getElementById('rd-nutrition').innerHTML=RD_NUTRITION.map(n=>`<div class="nut-row"><div class="nut-time">${n.time}</div><div class="nut-desc">${n.desc}</div></div>`).join('');
+}
+
+function renderChecklist(){
+  const saved=JSON.parse(_ls.getItem('im-checklist')||'{}');
+  const done=Object.values(saved).filter(Boolean).length;
+  const total=CHECKLIST.length;
+  document.getElementById('cl-bar').style.width=Math.round((done/total)*100)+'%';
+  document.getElementById('cl-sub').textContent=`${done} of ${total} milestones achieved (${Math.round((done/total)*100)}%)`;
+  document.getElementById('cl-items').innerHTML=CHECKLIST.map((item,i)=>`
+    <div class="check-item ${saved[i]?'checked':''}" onclick="toggleCheck(${i})">
+      <div class="cb"></div>
+      <div><div class="ct">${item.text}</div><div class="ct-phase">${item.phase}</div></div>
+    </div>`).join('');
+}
+function toggleCheck(i){
+  const saved=JSON.parse(_ls.getItem('im-checklist')||'{}');
+  saved[i]=!saved[i];
+  _ls.setItem('im-checklist',JSON.stringify(saved));
+  renderChecklist();
+}
+
+// ── REVIEW SYSTEM ──
+function initReview(){
+  const sel=document.getElementById('review-period-select');
+  sel.innerHTML=REVIEW_PERIODS.map(p=>`<option value="${p.key}">${p.label}</option>`).join('');
+  initStars();
+  loadReview();
+  renderReviewHistory();
+}
+
+function initStars(){
+  STAR_KEYS.forEach(key=>{
+    const row=document.getElementById('stars-'+key);
+    row.innerHTML='';
+    for(let i=1;i<=5;i++){
+      const s=document.createElement('span');
+      s.className='star';s.textContent='★';s.dataset.val=i;s.dataset.key=key;
+      s.onclick=()=>setStars(key,i);
+      row.appendChild(s);
+    }
+  });
+}
+
+function setStars(key,val){
+  currentStars[key]=val;
+  document.querySelectorAll(`#stars-${key} .star`).forEach(s=>{
+    s.classList.toggle('on',parseInt(s.dataset.val)<=val);
+  });
+}
+
+function loadStars(data){
+  STAR_KEYS.forEach(key=>{
+    const val=data&&data.stars?data.stars[key]||0:0;
+    currentStars[key]=val;
+    document.querySelectorAll(`#stars-${key} .star`).forEach(s=>{
+      s.classList.toggle('on',parseInt(s.dataset.val)<=val);
+    });
+  });
+}
+
+function loadReview(){
+  const key=document.getElementById('review-period-select').value;
+  const saved=JSON.parse(_ls.getItem('im-review-'+key)||'null');
+  REVIEW_FIELDS.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.value=saved&&saved[id]!=null?saved[id]:'';
+  });
+  loadStars(saved);
+  document.getElementById('saved-badge').classList.remove('show');
+}
+
+function saveReview(){
+  const key=document.getElementById('review-period-select').value;
+  const data={};
+  REVIEW_FIELDS.forEach(id=>{const el=document.getElementById(id);if(el)data[id]=el.value;});
+  data.stars=Object.assign({},currentStars);
+  data.savedAt=new Date().toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'});
+  data.periodLabel=REVIEW_PERIODS.find(p=>p.key===key)?.label||key;
+  _ls.setItem('im-review-'+key,JSON.stringify(data));
+  const badge=document.getElementById('saved-badge');
+  badge.classList.add('show');
+  setTimeout(()=>badge.classList.remove('show'),3000);
+  renderReviewHistory();
+}
+
+function clearReview(){
+  REVIEW_FIELDS.forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  currentStars={energy:0,consistency:0,bike:0,fitness:0};
+  loadStars(null);
+}
+
+function renderReviewHistory(){
+  const list=document.getElementById('review-history-list');
+  const reviews=REVIEW_PERIODS.map(p=>({key:p.key,label:p.label,data:JSON.parse(_ls.getItem('im-review-'+p.key)||'null')})).filter(r=>r.data);
+  if(!reviews.length){list.innerHTML=`<div class="no-reviews">No reviews saved yet. Complete your first 4-week block and fill in your review above.</div>`;return;}
+  list.innerHTML=reviews.map(r=>{
+    const stars=r.data.stars||{};
+    const avgStars=Math.round(Object.values(stars).reduce((a,b)=>a+b,0)/Math.max(1,Object.keys(stars).length));
+    const starStr='★'.repeat(avgStars)+'☆'.repeat(5-avgStars);
+    return`<div class="history-item" onclick="loadHistoryItem('${r.key}')">
+      <div class="history-item-header">
+        <div class="history-item-title">${r.label}</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="color:var(--gold);font-size:13px;">${starStr}</span>
+          <div class="history-item-date">Saved ${r.data.savedAt||''}</div>
+        </div>
+      </div>
+      <div class="history-item-summary">
+        ${r.data['r-long-ride']?`🚴 ${r.data['r-long-ride']}km ride · `:''}
+        ${r.data['r-long-run']?`🏃 ${r.data['r-long-run']}km run · `:''}
+        ${r.data['r-bricks']?`🧱 ${r.data['r-bricks']} bricks`:''}
+        ${r.data['r-went-well']?`<br><em>"${r.data['r-went-well'].substring(0,80)}${r.data['r-went-well'].length>80?'…':''}"</em>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function loadHistoryItem(key){
+  document.getElementById('review-period-select').value=key;
+  loadReview();
+  window.scrollTo({top:document.getElementById('tab-review').offsetTop-20,behavior:'smooth'});
+}
+
+function showTab(name,btn){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+function openGymModalBtn(){document.getElementById('gym-modal').classList.add('open');}
+function closeGymModalBtn(){document.getElementById('gym-modal').classList.remove('open');}
+function closeGymModal(e){if(e.target===document.getElementById('gym-modal'))closeGymModalBtn();}
+
+
+// ── SESSION LOGGING ──
+let slogWeek = 0;
+let slogDay = 0;
+let slogType = '';
+let slogFeel = '';
+
+function getSessionKey(week, day) {
+  return 'slog-w' + week + '-d' + day;
+}
+
+function openSlog(week, day) {
+  slogWeek = week;
+  slogDay = day;
+  const w = WEEKS[week];
+
+  // ── KEY FIX: use the swapped session if this day has been moved ──
+  const weekOrder = getWeekOrder(week);
+  const origDayIndex = weekOrder[day]; // which original session is actually showing on this column
+  const session = w.days[origDayIndex];
+  slogType = session.type;
+
+  // Set title using the ACTUAL session showing on this day
+  document.getElementById('slog-title').textContent = DAYS[day] + ' — ' + session.label;
+  const startDate = new Date('2026-05-04');
+  startDate.setDate(startDate.getDate() + week * 7 + day);
+  document.getElementById('slog-subtitle').textContent = startDate.toLocaleDateString('en-AU', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+  // Show log note as prompt
+  const logNoteEl = document.getElementById('slog-log-note');
+  if(logNoteEl) logNoteEl.textContent = session.logNote || '';
+  const coachTipEl = document.getElementById('slog-coach-tip');
+  if(coachTipEl) coachTipEl.textContent = session.coachTip || '';
+
+  // Show/hide relevant fields
+  const isGym = slogType === 'gym';
+  const isBike = slogType === 'bike';
+  const isRun = slogType === 'run';
+  const isSwim = slogType === 'swim';
+  const isBrick = slogType === 'brick';
+  const isRace = slogType === 'race';
+
+  document.getElementById('slog-cardio-fields').style.display = isGym ? 'none' : 'block';
+  document.getElementById('slog-gym-fields').style.display = isGym ? 'block' : 'none';
+  document.getElementById('slog-run-fields').style.display = (isRun || isBrick || isRace) ? 'block' : 'none';
+  // Show resting HR on Monday (day 0)
+  const rhrField = document.getElementById('slog-rhr-field');
+  if(rhrField) rhrField.style.display = (day === 0) ? 'block' : 'none';
+  document.getElementById('slog-bike-fields').style.display = (isBike || isBrick || isRace) ? 'block' : 'none';
+  document.getElementById('slog-swim-fields').style.display = (isSwim || isRace) ? 'block' : 'none';
+  document.getElementById('slog-brick-extra').style.display = isBrick ? 'block' : 'none';
+  // Show nutrition field for key sessions (bricks, long rides, long runs)
+  const nutField = document.getElementById('slog-nutrition-field');
+  if(nutField) nutField.style.display = (session.key || isBrick) ? 'block' : 'none';
+
+  // Reset all fields including split fields
+  ['sl-dist','sl-dur','sl-dur-h','sl-dur-m','sl-dur-s',
+   'sl-hr','sl-max-hr','sl-bike-max-hr',
+   'sl-run-pace','sl-run-pace-m','sl-run-pace-s',
+   'sl-swim-pace','sl-swim-pace-m','sl-swim-pace-s',
+   'sl-speed','sl-brick-run-dist',
+   'sl-brick-run-pace','sl-brick-run-pace-m','sl-brick-run-pace-s',
+   'sl-brick-run-hr','sl-notes','sl-niggle','sl-nutrition',
+   'sl-rhr','sl-sleep-h','sl-sleep-m'
+  ].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  // Clear pace displays
+  ['sl-run-pace-display','sl-swim-pace-display','sl-brick-run-pace-display'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = '';
+  });
+  document.getElementById('sl-swim-type').value = 'pool';
+  slogFeel = '';
+  document.querySelectorAll('.feel-btn').forEach(b => b.classList.remove('sel'));
+  document.getElementById('gym-ex-list').innerHTML = '';
+  if (isGym) { addGymEx(); addGymEx(); addGymEx(); }
+
+  // Load existing if saved
+  const saved = JSON.parse(_ls.getItem(getSessionKey(week, day)) || 'null');
+  if (saved) {
+    Object.keys(saved).forEach(k => {
+      if (k === 'feel') {
+        slogFeel = saved[k];
+        document.querySelector('.feel-btn[data-v="' + saved[k] + '"]')?.classList.add('sel');
+      } else if (k === 'gymExercises') {
+        document.getElementById('gym-ex-list').innerHTML = '';
+        saved[k].forEach(ex => addGymEx(ex));
+      } else if (k === 'run-pace') {
+        populatePaceFields('run-pace','run-pace-m','run-pace-s', saved[k]);
+      } else if (k === 'swim-pace') {
+        populatePaceFields('swim-pace','swim-pace-m','swim-pace-s', saved[k]);
+      } else if (k === 'brick-run-pace') {
+        populatePaceFields('brick-run-pace','brick-run-pace-m','brick-run-pace-s', saved[k]);
+      } else if (k === 'dur') {
+        populateDurFields(saved[k]);
+      } else if (k === 'sleep') {
+        populateSleepFields(saved[k]);
+      } else {
+        const el = document.getElementById('sl-' + k);
+        if (el) el.value = saved[k];
+      }
+    });
+    document.getElementById('btn-slog-delete').style.display = 'block';
+  } else {
+    document.getElementById('btn-slog-delete').style.display = 'none';
+  }
+
+  const ctEl = document.getElementById('slog-coach-tip');
+  const lnEl = document.getElementById('slog-log-note');
+  if(ctEl){ ctEl.style.display = session.coachTip ? 'block' : 'none'; }
+  if(lnEl){ lnEl.style.display = session.logNote ? 'block' : 'none'; }
+  document.getElementById('slog-overlay').classList.add('open');
+}
+
+function closeSlog() {
+  document.getElementById('slog-overlay').classList.remove('open');
+}
+
+function closeSlogIfBg(e) {
+  if (e.target === document.getElementById('slog-overlay')) closeSlog();
+}
+
+function setFeel(btn) {
+  document.querySelectorAll('.feel-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  slogFeel = btn.dataset.v;
+}
+
+function addGymEx(data) {
+  const row = document.createElement('div');
+  row.className = 'gym-ex-row';
+  row.innerHTML = '<input type="text" placeholder="Exercise name" value="' + (data ? data.name || '' : '') + '">'
+    + '<input type="number" placeholder="Sets" value="' + (data ? data.sets || '' : '') + '">'
+    + '<input type="number" placeholder="Reps" value="' + (data ? data.reps || '' : '') + '">'
+    + '<input type="number" step="0.5" placeholder="kg" value="' + (data ? data.weight || '' : '') + '">'
+    + '<button class="btn-rm-ex" onclick="this.parentElement.remove()">✕</button>';
+  document.getElementById('gym-ex-list').appendChild(row);
+}
+
+function saveSessionLog() {
+  const data = { feel: slogFeel };
+  // Read standard fields
+  ['dist','dur','hr','max-hr','run-pace','speed','bike-max-hr','swim-pace','swim-type',
+   'brick-run-dist','brick-run-pace','brick-run-hr','notes','rhr','niggle','nutrition'].forEach(k => {
+    const el = document.getElementById('sl-' + k);
+    if (el && el.value) data[k] = el.value;
+  });
+  // Read sleep as decimal hours
+  const sleepVal = readSleepField();
+  if(sleepVal) data['sleep'] = sleepVal;
+  // Format duration display string for summary
+  if(data.dur) data.durDisplay = formatDuration(data.dur);
+
+  if (slogType === 'gym') {
+    const rows = document.querySelectorAll('#gym-ex-list .gym-ex-row');
+    const exercises = [];
+    rows.forEach(row => {
+      const inputs = row.querySelectorAll('input');
+      if (inputs[0].value) exercises.push({ name: inputs[0].value, sets: inputs[1].value, reps: inputs[2].value, weight: inputs[3].value });
+    });
+    if (exercises.length) data.gymExercises = exercises;
+  }
+
+  data.savedAt = new Date().toISOString();
+  _ls.setItem(getSessionKey(slogWeek, slogDay), JSON.stringify(data));
+  closeSlog();
+  renderWeek();
+}
+
+async function deleteSessionLog() {
+  _ls.removeItem(getSessionKey(slogWeek, slogDay));
+  closeSlog();
+  await renderWeek();
+}
+
+function getSessionSummary(week, day) {
+  const saved = JSON.parse(_ls.getItem(getSessionKey(week, day)) || 'null');
+  if (!saved) return null;
+  const w = WEEKS[week];
+  // Use week order to get the correct swapped session type
+  const orderData = _ls.getItem(getOrderKey(week));
+  const order = orderData ? JSON.parse(orderData) : [0,1,2,3,4,5,6];
+  const origDayIndex = order[day];
+  const type = w.days[origDayIndex].type;
+  let parts = [];
+  if (saved.dist) parts.push('📏 ' + saved.dist + 'km');
+  if (saved.durDisplay) parts.push('⏱ ' + saved.durDisplay);
+  else if (saved.dur) parts.push('⏱ ' + formatDuration(saved.dur));
+  if (saved.speed) parts.push('🚴 ' + saved.speed + 'km/h');
+  if (saved['run-pace']) parts.push('🏃 ' + saved['run-pace'] + '/km');
+  if (saved['swim-pace']) parts.push('🏊 ' + saved['swim-pace'] + '/100m');
+  if (saved.hr) parts.push('❤️ ' + saved.hr + 'bpm');
+  if (saved.feel) { const icons = {great:'😄',ok:'😐',tired:'😴',rough:'💀'}; parts.push(icons[saved.feel] || ''); }
+  if (type === 'gym' && saved.gymExercises) parts.push('💪 ' + saved.gymExercises.length + ' exercises');
+  if (saved['brick-run-pace']) parts.push('🧱 run ' + saved['brick-run-pace'] + '/km');
+  if (saved.niggle) parts.push('🩹 niggle flagged');
+  if (saved.rhr) parts.push('❤️ RHR ' + saved.rhr);
+  return parts.join(' · ');
+}
+
+// ── EXPORT FOR 4-WEEK REVIEW ──
+function exportReviewData(blockKey) {
+  const period = REVIEW_PERIODS.find(p => p.key === blockKey);
+  if (!period) return;
+
+  // Gather all logged sessions for this block
+  const blockNum = parseInt(blockKey.replace('block','')) - 1;
+  const startWeek = blockNum * 4;
+  const endWeek = Math.min(startWeek + 4, WEEKS.length);
+
+  const sessions = [];
+  for (let w = startWeek; w < endWeek; w++) {
+    for (let d = 0; d < 7; d++) {
+      const saved = JSON.parse(_ls.getItem(getSessionKey(w, d)) || 'null');
+      if (saved) {
+        const session = WEEKS[w].days[d];
+        const date = new Date('2026-05-04');
+        date.setDate(date.getDate() + w * 7 + d);
+        sessions.push({
+          week: w + 1,
+          day: DAYS[d],
+          date: date.toLocaleDateString('en-AU'),
+          type: session.type,
+          label: session.label,
+          ...saved
+        });
+      }
+    }
+  }
+
+  // Also grab the 4-week review form data
+  const reviewData = JSON.parse(_ls.getItem('im-review-' + blockKey) || '{}');
+
+  const exportObj = {
+    exportedAt: new Date().toLocaleString('en-AU'),
+    block: period.label,
+    sessionCount: sessions.length,
+    sessions,
+    review: reviewData
+  };
+
+  const blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'ironman-review-' + blockKey + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+
+// ── EVENING RIDE LOGGING ──
+function toggleEveLog(week, day, btn) {
+  // Open the main session logger but set to evening bike mode
+  slogWeek = week;
+  slogDay = day;
+  slogType = 'evening-bike';
+
+  // Use week order so evening ride matches the swapped session on this column
+  const weekOrder = getWeekOrder(week);
+  const origDayIndex = weekOrder[day];
+  const eve = EVENING_RIDES[week][origDayIndex];
+  document.getElementById('slog-title').textContent = '🌙 Evening Ride — ' + DAYS[day];
+  const startDate = new Date('2026-05-04');
+  startDate.setDate(startDate.getDate() + week * 7 + day);
+  document.getElementById('slog-subtitle').textContent = 'Optional Indoor Bike · ' + startDate.toLocaleDateString('en-AU', {day:'numeric', month:'long'});
+
+  // Show bike fields only
+  document.getElementById('slog-cardio-fields').style.display = 'block';
+  document.getElementById('slog-gym-fields').style.display = 'none';
+  document.getElementById('slog-run-fields').style.display = 'none';
+  document.getElementById('slog-bike-fields').style.display = 'block';
+  document.getElementById('slog-swim-fields').style.display = 'none';
+  document.getElementById('slog-brick-extra').style.display = 'none';
+
+  // Reset
+  ['sl-dist','sl-dur','sl-hr','sl-max-hr','sl-speed'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('sl-notes').value = '';
+  slogFeel = '';
+  document.querySelectorAll('.feel-btn').forEach(b => b.classList.remove('sel'));
+
+  // Load existing
+  const eveLogKey = 'evelog-w' + week + '-d' + day;
+  const saved = JSON.parse(_ls.getItem(eveLogKey) || 'null');
+  if (saved) {
+    Object.keys(saved).forEach(k => {
+      if (k === 'feel') { slogFeel = saved[k]; document.querySelector('.feel-btn[data-v="' + saved[k] + '"]')?.classList.add('sel'); }
+      else { const el = document.getElementById('sl-' + k); if (el) el.value = saved[k]; }
+    });
+    document.getElementById('btn-slog-delete').style.display = 'block';
+  } else {
+    document.getElementById('btn-slog-delete').style.display = 'none';
+  }
+
+  // Override save to use evening key
+  document._slogIsEvening = true;
+  document.getElementById('slog-overlay').classList.add('open');
+}
+
+// Override saveSessionLog to handle evening rides
+const _origSaveSessionLog = typeof saveSessionLog !== 'undefined' ? saveSessionLog : null;
+
+function saveSessionLog() {
+  const isEvening = document._slogIsEvening;
+  document._slogIsEvening = false;
+
+  const data = { feel: slogFeel };
+  ['dist','dur','hr','max-hr','run-pace','speed','bike-max-hr','swim-pace','swim-type','brick-run-dist','brick-run-pace','brick-run-hr','notes'].forEach(k => {
+    const el = document.getElementById('sl-' + k);
+    if (el && el.value) data[k] = el.value;
+  });
+
+  if (slogType === 'gym') {
+    const rows = document.querySelectorAll('#gym-ex-list .gym-ex-row');
+    const exercises = [];
+    rows.forEach(row => {
+      const inputs = row.querySelectorAll('input');
+      if (inputs[0].value) exercises.push({ name: inputs[0].value, sets: inputs[1].value, reps: inputs[2].value, weight: inputs[3].value });
+    });
+    if (exercises.length) data.gymExercises = exercises;
+  }
+
+  data.savedAt = new Date().toISOString();
+  const key = isEvening ? ('evelog-w' + slogWeek + '-d' + slogDay) : getSessionKey(slogWeek, slogDay);
+  _ls.setItem(key, JSON.stringify(data));
+  closeSlog();
+  renderWeek();
+}
+
+function deleteSessionLog() {
+  const isEvening = document._slogIsEvening;
+  document._slogIsEvening = false;
+  const key = isEvening ? ('evelog-w' + slogWeek + '-d' + slogDay) : getSessionKey(slogWeek, slogDay);
+  _ls.removeItem(key);
+  closeSlog();
+  renderWeek();
+}
+
+// Update export to include evening rides
+const _origExport = typeof exportReviewData !== 'undefined' ? exportReviewData : null;
+function exportReviewData(blockKey) {
+  const period = REVIEW_PERIODS.find(p => p.key === blockKey);
+  if (!period) return;
+
+  const blockNum = parseInt(blockKey.replace('block','')) - 1;
+  const startWeek = blockNum * 4;
+  const endWeek = Math.min(startWeek + 4, WEEKS.length);
+
+  const sessions = [];
+  const eveningSessions = [];
+  for (let w = startWeek; w < endWeek; w++) {
+    for (let d = 0; d < 7; d++) {
+      const saved = JSON.parse(_ls.getItem(getSessionKey(w, d)) || 'null');
+      if (saved) {
+        const session = WEEKS[w].days[d];
+        const date = new Date('2026-05-04');
+        date.setDate(date.getDate() + w * 7 + d);
+        // Get the actual session showing on this column (accounting for swaps)
+        const exportOrderData = _ls.getItem(getOrderKey(w));
+        const exportOrder = exportOrderData ? JSON.parse(exportOrderData) : [0,1,2,3,4,5,6];
+        const exportOrigIdx = exportOrder[d];
+        const actualSession = WEEKS[w].days[exportOrigIdx];
+        sessions.push({ week: w + 1, day: DAYS[d], date: date.toLocaleDateString('en-AU'), type: actualSession.type, label: actualSession.label, ...saved });
+      }
+      const eveSaved = JSON.parse(_ls.getItem('evelog-w' + w + '-d' + d) || 'null');
+      if (eveSaved) {
+        const date = new Date('2026-05-04');
+        date.setDate(date.getDate() + w * 7 + d);
+        eveningSessions.push({ week: w + 1, day: DAYS[d], date: date.toLocaleDateString('en-AU'), type: 'evening-bike', ...eveSaved });
+      }
+    }
+  }
+
+  const reviewData = JSON.parse(_ls.getItem('im-review-' + blockKey) || '{}');
+  const exportObj = {
+    exportedAt: new Date().toLocaleString('en-AU'),
+    block: period.label,
+    sessionCount: sessions.length,
+    eveningRideCount: eveningSessions.length,
+    sessions,
+    eveningSessions,
+    review: reviewData
+  };
+
+  const blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'ironman-review-' + blockKey + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+
+// ── BACKUP EXPORT / IMPORT ──
+function exportBackup() {
+  const backup = { exportedAt: new Date().toISOString(), userId: USER_ID, data: _cache };
+  const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'jason-training-backup-' + new Date().toLocaleDateString('en-AU').replace(/\//g,'-') + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showBanner('✅ Backup downloaded', 'saved', 2000);
+}
+
+async function importBackup(input) {
+  const file = input.files[0];
+  if(!file) return;
+  const text = await file.text();
+  const backup = JSON.parse(text);
+  if(!backup.data) { alert('Invalid backup file.'); return; }
+  showBanner('⏳ Restoring backup...', 'saving', 0);
+  const keys = Object.keys(backup.data);
+  for(const key of keys) {
+    await sbSet(key, backup.data[key]);
+  }
+  showBanner('✅ Backup restored!', 'saved', 3000);
+  setTimeout(() => location.reload(), 2000);
+}
+
+
+// ── DAY SWAP / EDIT SYSTEM ──
+// Overrides are stored per week: { week: { dayIndex: { swappedWith: dayIndex } | 'rest' | null } }
+// Key: 'week-overrides-wN' -> { 0: {type:'swap', with:3}, 3: {type:'swap', with:0}, 2: {type:'rest'} }
+
+function getOverrideKey(week) { return 'week-override-w' + week; }
+
+async function getWeekOverrides(week) {
+  const data = _ls.getItem(getOverrideKey(week));
+  return data ? JSON.parse(data) : {};
+}
+
+async function setWeekOverrides(week, overrides) {
+  _ls.setItem(getOverrideKey(week), JSON.stringify(overrides));
+}
+
+// Get the effective session for a given week/day (accounting for swaps)
+async function getEffectiveSession(week, day) {
+  const overrides = await getWeekOverrides(week);
+  const override = overrides[day];
+  if (!override) return WEEKS[week].days[day];
+  if (override.type === 'rest') return REST();
+  if (override.type === 'swap') return WEEKS[week].days[override.with];
+  return WEEKS[week].days[day];
+}
+
+// Open the edit modal for a day
+let editWeek = 0;
+let editDay = 0;
+
+async function openEditDay(week, day) {
+  editWeek = week;
+  editDay = day;
+  const w = WEEKS[week];
+  const overrides = await getWeekOverrides(week);
+  const override = overrides[day];
+  const origSession = w.days[day];
+  const effSession = override && override.type === 'swap' ? w.days[override.with] : origSession;
+
+  document.getElementById('edit-modal-title').textContent = DAYS[day] + ' — Edit Session';
+
+  const isSwapped = override && override.type === 'swap';
+  const isRest = override && override.type === 'rest';
+
+  // Build list of other days to swap with
+  const swapOptions = w.days.map((s, i) => {
+    if (i === day) return '';
+    if (s.type === 'rest') return '';
+    const icon = {swim:'🏊',run:'🏃',bike:'🚴',brick:'🧱',gym:'💪',race:'🏁'}[s.type] || '📋';
+    return `<button class="swap-day-btn" onclick="doSwap(${week},${day},${i})">
+      <div>
+        <div class="swap-day-name">${DAYS[i]} ${icon} ${s.label}</div>
+        <div class="swap-day-session">${s.detail.substring(0,60)}...</div>
+      </div>
+      <span style="color:var(--gold);font-size:18px;">⇄</span>
+    </button>`;
+  }).join('');
+
+  const origIcon = {swim:'🏊',run:'🏃',bike:'🚴',brick:'🧱',gym:'💪',race:'🏁'}[origSession.type] || '📋';
+  const effIcon = {swim:'🏊',run:'🏃',bike:'🚴',brick:'🧱',gym:'💪',race:'🏁'}[effSession.type] || '📋';
+
+  document.getElementById('edit-modal-body').innerHTML = `
+    <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:12px 14px;margin-bottom:16px;">
+      <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">Current Session</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;">${effIcon} ${effSession.label}</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px;">${effSession.detail.substring(0,80)}...</div>
+      ${isSwapped ? `<div style="font-size:11px;color:var(--gold);margin-top:5px;">⚡ Swapped from ${DAYS[overrides[day].with]}</div>` : ''}
+      ${isRest ? `<div style="font-size:11px;color:var(--green);margin-top:5px;">✅ Marked as rest day</div>` : ''}
+    </div>
+
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--surf);margin-bottom:10px;">Swap with another day this week</div>
+    <div class="edit-swap-list">${swapOptions}</div>
+
+    ${origSession.type !== 'rest' && origSession.type !== 'race' ? `
+    <button class="btn-mark-rest" onclick="markAsRest(${week},${day})">
+      😴 Mark as Rest Day
+    </button>` : ''}
+    ${(isSwapped || isRest) ? `
+    <button class="btn-restore-orig" onclick="restoreOriginal(${week},${day})">
+      ↩️ Restore Original Session
+    </button>` : ''}
+  `;
+
+  document.getElementById('edit-overlay').classList.add('open');
+}
+
+function closeEdit() { document.getElementById('edit-overlay').classList.remove('open'); }
+function closeEditIfBg(e) { if(e.target === document.getElementById('edit-overlay')) closeEdit(); }
+
+async function doSwap(week, day, withDay) {
+  const overrides = await getWeekOverrides(week);
+  // Swap both days
+  overrides[day] = { type: 'swap', with: withDay };
+  overrides[withDay] = { type: 'swap', with: day };
+  await setWeekOverrides(week, overrides);
+  closeEdit();
+  renderWeek();
+  showBanner('⇄ Sessions swapped', 'saved', 2000);
+}
+
+async function markAsRest(week, day) {
+  const overrides = await getWeekOverrides(week);
+  overrides[day] = { type: 'rest' };
+  await setWeekOverrides(week, overrides);
+  closeEdit();
+  renderWeek();
+  showBanner('😴 Day marked as rest', 'saved', 2000);
+}
+
+async function restoreOriginal(week, day) {
+  const overrides = await getWeekOverrides(week);
+  // If this day was swapped with another, also restore the other
+  const override = overrides[day];
+  if(override && override.type === 'swap') {
+    const other = override.with;
+    // Only restore other if it's still pointing back here
+    if(overrides[other] && overrides[other].with === day) {
+      delete overrides[other];
+    }
+  }
+  delete overrides[day];
+  await setWeekOverrides(week, overrides);
+  closeEdit();
+  renderWeek();
+  showBanner('↩️ Original session restored', 'saved', 2000);
+}
+
+
+// ── DRAG AND DROP WEEK SCHEDULER ──
+// Stores per-week session order: key 'week-order-wN' -> [0,1,2,3,4,5,6] (index mapping)
+// Stores skipped sessions: key 'week-skip-wN' -> {0:true, 3:true}
+
+function getOrderKey(week) { return 'week-order-w' + week; }
+function getSkipKey(week)  { return 'week-skip-w' + week; }
+
+// Synchronous - reads from in-memory cache via _ls
+function getWeekOrder(week) {
+  const data = _ls.getItem(getOrderKey(week));
+  if (data) return JSON.parse(data);
+  return [0,1,2,3,4,5,6];
+}
+
+function getWeekSkips(week) {
+  const data = _ls.getItem(getSkipKey(week));
+  return data ? JSON.parse(data) : {};
+}
+
+function saveWeekOrder(week, order) {
+  _ls.setItem(getOrderKey(week), JSON.stringify(order));
+}
+
+function saveWeekSkips(week, skips) {
+  _ls.setItem(getSkipKey(week), JSON.stringify(skips));
+}
+
+// Drag state
+let dragSrcCol = null;
+
+function onDragStart(e, colIndex) {
+  dragSrcCol = colIndex;
+  e.dataTransfer.effectAllowed = 'move';
+  setTimeout(() => {
+    const chips = document.querySelectorAll('.session-chip');
+    if(chips[colIndex]) chips[colIndex].classList.add('dragging');
+  }, 0);
+}
+
+function onDragEnd(e) {
+  document.querySelectorAll('.session-chip').forEach(c => {
+    c.classList.remove('dragging','drag-over');
+  });
+  dragSrcCol = null;
+}
+
+function onDragOver(e, colIndex) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  document.querySelectorAll('.session-chip').forEach((c,i) => {
+    c.classList.toggle('drag-over', i === colIndex && i !== dragSrcCol);
+  });
+}
+
+function onDragLeave(e) {
+  e.currentTarget.classList.remove('drag-over');
+}
+
+async function onDrop(e, destCol) {
+  e.preventDefault();
+  document.querySelectorAll('.session-chip').forEach(c => c.classList.remove('drag-over','dragging'));
+  if (dragSrcCol === null || dragSrcCol === destCol) return;
+
+  const order = getWeekOrder(currentWeek);
+  // Swap the two positions in the order array
+  const tmp = order[dragSrcCol];
+  order[dragSrcCol] = order[destCol];
+  order[destCol] = tmp;
+
+  saveWeekOrder(currentWeek, order);
+  dragSrcCol = null;
+  await renderWeek();
+  showBanner('⇄ Sessions swapped', 'saved', 1800);
+}
+
+async function skipSession(colIndex) {
+  const skips = getWeekSkips(currentWeek);
+  skips[colIndex] = true;
+  saveWeekSkips(currentWeek, skips);
+  await renderWeek();
+  showBanner('⏭️ Session skipped', 'saving', 1800);
+}
+
+async function restoreSession(colIndex) {
+  const order = getWeekOrder(currentWeek);
+  const skips = getWeekSkips(currentWeek);
+  // Restore skip
+  delete skips[colIndex];
+  saveWeekSkips(currentWeek, skips);
+
+  // Also restore original position for this column if it was moved
+  // Check if this col's original session index matches — if not, offer reset
+  await renderWeek();
+  showBanner('↩️ Session restored', 'saved', 1800);
+}
+
+async function resetWeekOrder() {
+  _ls.setItem(getOrderKey(currentWeek), JSON.stringify([0,1,2,3,4,5,6]));
+  _ls.setItem(getSkipKey(currentWeek), JSON.stringify({}));
+  await renderWeek();
+  showBanner('↩️ Week reset to original', 'saved', 2000);
+}
+
+// Touch drag support for mobile
+let touchSrcCol = null;
+let touchClone = null;
+
+function onTouchStart(e, colIndex) {
+  touchSrcCol = colIndex;
+  const chip = e.currentTarget;
+  // Create a visual clone for dragging
+  touchClone = chip.cloneNode(true);
+  touchClone.style.cssText = 'position:fixed;opacity:0.8;pointer-events:none;z-index:9998;width:'+chip.offsetWidth+'px;transform:scale(1.05);border-color:var(--gold);';
+  document.body.appendChild(touchClone);
+  positionTouchClone(e.touches[0]);
+}
+
+function positionTouchClone(touch) {
+  if(!touchClone) return;
+  touchClone.style.left = (touch.clientX - touchClone.offsetWidth/2) + 'px';
+  touchClone.style.top  = (touch.clientY - touchClone.offsetHeight/2) + 'px';
+}
+
+function onTouchMove(e) {
+  if(touchSrcCol === null) return;
+  e.preventDefault();
+  positionTouchClone(e.touches[0]);
+  // Highlight target
+  const touch = e.touches[0];
+  const chips = document.querySelectorAll('.session-chip');
+  chips.forEach((chip, i) => {
+    const rect = chip.getBoundingClientRect();
+    const over = touch.clientX >= rect.left && touch.clientX <= rect.right &&
+                 touch.clientY >= rect.top  && touch.clientY <= rect.bottom;
+    chip.classList.toggle('drag-over', over && i !== touchSrcCol);
+  });
+}
+
+async function onTouchEnd(e) {
+  if(touchSrcCol === null) return;
+  if(touchClone) { touchClone.remove(); touchClone = null; }
+
+  // Find which chip the touch ended over
+  const chips = document.querySelectorAll('.session-chip');
+  let destCol = null;
+  const touch = e.changedTouches[0];
+  chips.forEach((chip, i) => {
+    const rect = chip.getBoundingClientRect();
+    if(touch.clientX >= rect.left && touch.clientX <= rect.right &&
+       touch.clientY >= rect.top  && touch.clientY <= rect.bottom) {
+      destCol = i;
+    }
+    chip.classList.remove('drag-over','dragging');
+  });
+
+  if(destCol !== null && destCol !== touchSrcCol) {
+    const order = getWeekOrder(currentWeek);
+    const tmp = order[touchSrcCol];
+    order[touchSrcCol] = order[destCol];
+    order[destCol] = tmp;
+    saveWeekOrder(currentWeek, order);
+    await renderWeek();
+    showBanner('⇄ Sessions swapped', 'saved', 1800);
+  }
+  touchSrcCol = null;
+}
+
+
+
+async function restoreCol(colIndex) {
+  // Reset this column back to its original session
+  const order = getWeekOrder(currentWeek);
+  const skips = getWeekSkips(currentWeek);
+
+  // Find where the original session for this col currently is
+  const origSession = colIndex; // original session index = colIndex (by convention)
+  // Find which col currently holds origSession and swap it back
+  const currentHolder = order.indexOf(origSession);
+  if(currentHolder !== colIndex) {
+    // Swap back
+    const tmp = order[colIndex];
+    order[colIndex] = order[currentHolder];
+    order[currentHolder] = tmp;
+    saveWeekOrder(currentWeek, order);
+  }
+  // Restore skip
+  delete skips[colIndex];
+  saveWeekSkips(currentWeek, skips);
+  await renderWeek();
+  showBanner('↩️ Day restored', 'saved', 1800);
+}
+
+
+// ── TIME / PACE FIELD HELPERS ──
+
+// Updates the hidden combined pace field and shows a formatted preview
+function updatePaceField(fieldId, minsId, secsId) {
+  const m = document.getElementById('sl-' + minsId);
+  const s = document.getElementById('sl-' + secsId);
+  const hidden = document.getElementById('sl-' + fieldId);
+  const display = document.getElementById('sl-' + fieldId + '-display');
+  if(!m || !s || !hidden) return;
+  const mins = parseInt(m.value) || 0;
+  const secs = parseInt(s.value) || 0;
+  // Clamp seconds to 0-59
+  if(secs > 59) { s.value = 59; }
+  if(mins > 0 || secs > 0) {
+    const formatted = mins + ':' + String(secs).padStart(2,'0');
+    hidden.value = formatted;
+    if(display) display.textContent = '→ ' + formatted + (fieldId.includes('swim') ? ' /100m' : ' /km');
+  } else {
+    hidden.value = '';
+    if(display) display.textContent = '';
+  }
+}
+
+// Updates the hidden duration field from h:m:s inputs
+function updateDurField() {
+  const h = document.getElementById('sl-dur-h');
+  const m = document.getElementById('sl-dur-m');
+  const s = document.getElementById('sl-dur-s');
+  const hidden = document.getElementById('sl-dur');
+  if(!hidden) return;
+  const hours = parseInt(h?.value) || 0;
+  const mins  = parseInt(m?.value) || 0;
+  const secs  = parseInt(s?.value) || 0;
+  if(secs > 59 && s) s.value = 59;
+  if(mins > 59 && m) m.value = 59;
+  if(hours > 0 || mins > 0 || secs > 0) {
+    // Store as total minutes with decimal for seconds
+    const totalMins = hours * 60 + mins + (secs / 60);
+    hidden.value = totalMins.toFixed(2);
+  } else {
+    hidden.value = '';
+  }
+}
+
+// Format total minutes back to h:mm:ss display string
+function formatDuration(totalMins) {
+  if(!totalMins) return '';
+  const total = parseFloat(totalMins);
+  const h = Math.floor(total / 60);
+  const m = Math.floor(total % 60);
+  const s = Math.round((total % 1) * 60);
+  if(h > 0) return `${h}h ${m}m ${s > 0 ? s+'s' : ''}`.trim();
+  if(m > 0) return `${m}m ${s > 0 ? s+'s' : ''}`.trim();
+  return `${s}s`;
+}
+
+// Split a "m:ss" string into {mins, secs}
+function parsePace(paceStr) {
+  if(!paceStr) return {mins:'', secs:''};
+  const parts = paceStr.split(':');
+  return { mins: parts[0] || '', secs: parts[1] || '' };
+}
+
+// Split total minutes back into h/m/s fields
+function parseDuration(totalMins) {
+  if(!totalMins) return {h:'', m:'', s:''};
+  const total = parseFloat(totalMins);
+  return {
+    h: Math.floor(total / 60) || '',
+    m: Math.floor(total % 60) || '',
+    s: Math.round((total % 1) * 60) || ''
+  };
+}
+
+// Populate split pace fields from a stored "m:ss" value
+function populatePaceFields(fieldId, minsId, secsId, value) {
+  const p = parsePace(value);
+  const mEl = document.getElementById('sl-' + minsId);
+  const sEl = document.getElementById('sl-' + secsId);
+  const hidden = document.getElementById('sl-' + fieldId);
+  const display = document.getElementById('sl-' + fieldId + '-display');
+  if(mEl) mEl.value = p.mins;
+  if(sEl) sEl.value = p.secs;
+  if(hidden) hidden.value = value || '';
+  if(display && value) display.textContent = '→ ' + value + (fieldId.includes('swim') ? ' /100m' : ' /km');
+}
+
+// Populate duration h/m/s fields from stored total minutes
+function populateDurFields(value) {
+  const d = parseDuration(value);
+  const hEl = document.getElementById('sl-dur-h');
+  const mEl = document.getElementById('sl-dur-m');
+  const sEl = document.getElementById('sl-dur-s');
+  const hidden = document.getElementById('sl-dur');
+  if(hEl) hEl.value = d.h;
+  if(mEl) mEl.value = d.m;
+  if(sEl) sEl.value = d.s;
+  if(hidden) hidden.value = value || '';
+}
+
+// Populate sleep h/m fields
+function populateSleepFields(value) {
+  if(!value) return;
+  const total = parseFloat(value);
+  const hEl = document.getElementById('sl-sleep-h');
+  const mEl = document.getElementById('sl-sleep-m');
+  if(hEl) hEl.value = Math.floor(total) || '';
+  if(mEl) mEl.value = Math.round((total % 1) * 60) || '';
+}
+
+// Read sleep fields into decimal hours
+function readSleepField() {
+  const h = parseInt(document.getElementById('sl-sleep-h')?.value) || 0;
+  const m = parseInt(document.getElementById('sl-sleep-m')?.value) || 0;
+  return (h > 0 || m > 0) ? (h + m/60).toFixed(2) : '';
+}
+
+// ── INIT ──
+async function init() {
+  // Preload all data from Supabase into cache
+  await preloadAllData();
+
+  // Hide loading screen
+  const loader = document.getElementById('sb-loading');
+  loader.classList.add('hide');
+  setTimeout(() => loader.style.display = 'none', 600);
+
+  // Render everything
+  renderCountdowns();
+  renderPhases();
+  setCurrentWeek();
+  renderWeek();
+  renderGym();
+  renderMilestones();
+  renderKeySessions();
+  renderRaceDay();
+  renderChecklist();
+  initReview();
+}
+init();
+</script>
+</body>
+</html>
