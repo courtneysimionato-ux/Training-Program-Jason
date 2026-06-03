@@ -990,7 +990,7 @@ const _ls = {
 
 // ── DATES ──
 const TODAY = new Date(); TODAY.setHours(0,0,0,0);
-const PROGRAM_START = new Date('2026-05-05');
+const PROGRAM_START = new Date('2026-05-05'); // Program started 5 May 2026
 const RACES = { hbf:new Date('2026-05-24'), half:new Date('2026-10-11'), im:new Date('2026-12-05') };
 
 const PHASES = [
@@ -1144,16 +1144,16 @@ const WEEKS=[
   BRICK('35min bike → 25min run. Try to hit target run pace (5:45–6:00/km) in the second half.',75,'💡 The goal is to find race run pace off the bike. It will not feel easy — it is not supposed to.','Log bike speed, run pace, and how quickly you found your run rhythm.',true),
   REST(),
 ]},
-{phase:'Build 1',type:'race',noteType:'race',note:'🏁 HBF RACE WEEK — 24 May 2026. Pull back everything. No gym, no hard sessions. Short easy movement Mon–Thu only. Race Saturday morning. Run at Zone 2–3. Enjoy it.',days:[
-  RUN('Easy 6km shakeout. Zone 1–2 only.',36,'💡 This is not training. Just keep the legs moving. Do not push anything.','Note your resting HR. Feeling fresh and ready?'),
-  BIKE('20min very easy spin.',20,'💡 Easy means easy. HR below 120.','How are the legs feeling heading into race day?'),
-  SWIM('1km easy. No hard efforts.',28,'💡 Relax. Smooth strokes. Mental prep.','How are you feeling mentally?'),
-  RUN('15min easy jog + 4×30sec strides.',20,'💡 Strides wake the legs up without fatiguing them.','How sharp did the legs feel?'),
-  REST(),
-  RACE('🏃 HBF Run For a Reason — 24 May 2026. 12km. Run at Zone 2–3. Controlled and strong. Enjoy it!'),
+{phase:'Build 1',type:'normal',weekType:'A',note:'✅ HBF Run For a Reason DONE — well done Jason! Back into full training this week. The race fitness is in the legs. Saturday long ride targets 40km. Keep the momentum going.',days:[
+  RUN('Easy 9km. Zone 2. Back into normal training post HBF.',54,'💡 Easy day to start the week. Let the HBF legs fully recover.','Note your resting HR and energy levels. How are the legs feeling post race?'),
+  GYM('Build 1 gym session. Back to full 3 sets. Add weight where last sessions felt easy.',45,'💡 Last two weeks of Build 1 gym. Make the most of these before the program upgrades.','Log all exercises and weights.'),
+  SWIM('2.2km. 400m warm-up, 6×200m descending effort, 200m cool-down.',58,'💡 Descending efforts teach pace control and finishing strong.','Log your 200m times. Were they actually getting faster across all 6?'),
+  RUN('Tempo run: 9km — 2km warm-up, 5km tempo at 4:55–5:05/km, 2km cool-down.',55,'💡 Post HBF your tempo pace should feel stronger. Trust the race fitness.','Log tempo splits. Compare to earlier tempo sessions — are you faster?'),
+  BIKE('Structured ride: 60min — 10min warm-up, 4×8min Zone 3 with 3min easy, cool-down.',60,'💡 Four efforts at Zone 3. Maintain consistent speed across all four.','Log speed during each effort. Consistency is the goal.'),
+  BRICK('40min bike → 25min run at target race pace (5:45–6:00/km).',80,'💡 Good solid brick. Bike at race effort, then hold run pace.','Log bike speed, run pace, and how the transition felt.',true),
   REST(),
 ]},
-{phase:'Build 1',type:'deload',noteType:'deload',note:'💚 Recovery week after HBF. Keep everything easy and short. Gym returns but lighter. Your body needs to absorb the race effort.',days:[
+{phase:'Build 1',type:'deload',noteType:'deload',note:'💚 Deload week — pull back on volume. Keep everything easy and short. Your body needs to absorb the past 5 weeks of work before Build 2 kicks in.',days:[
   RUN('Easy 7km. Zone 2.',42,'💡 Post-race week. Keep HR low even if you feel fine.','Note your resting HR — is it back to normal post-race?'),
   GYM('Build 1 gym — lighter this week. 2 sets instead of 3.',38,'💡 Deload gym is about maintaining the pattern, not building load.','Log weights — same or slightly lighter than last week.'),
   SWIM('1.8km easy. Technique focus.',48,'💡 Slow down and feel every part of the stroke. Technique not pace.','Any technique improvements? How did the shoulders feel?'),
@@ -1462,11 +1462,17 @@ function renderCountdowns(){
     const days=daysBetween(TODAY,r.date);
     const el=document.getElementById(r.elId);
     const numEl=document.getElementById(r.numId);
-    if(days<0){numEl.textContent='Race Day!';}
-    else numEl.textContent=days;
-    const total=daysBetween(r.start,r.date);
-    const elapsed=daysBetween(r.start,TODAY);
-    document.getElementById(r.barId).style.width=Math.min(100,Math.max(2,(elapsed/total)*100))+'%';
+    if(days<0){
+      el.classList.add('done');
+      numEl.textContent='✅ Done';
+      if(r.unitId)document.getElementById(r.unitId).textContent='Completed!';
+      document.getElementById(r.barId).style.width='100%';
+    } else {
+      numEl.textContent=days;
+      const total=daysBetween(r.start,r.date);
+      const elapsed=daysBetween(r.start,TODAY);
+      document.getElementById(r.barId).style.width=Math.min(98,Math.max(2,(elapsed/total)*100))+'%';
+    }
   });
 }
 
@@ -1854,7 +1860,7 @@ function openSlog(week, day) {
 
   // Set title using the ACTUAL session showing on this day
   document.getElementById('slog-title').textContent = DAYS[day] + ' — ' + session.label;
-  const startDate = new Date('2026-05-04');
+  const startDate = new Date('2026-05-05');
   startDate.setDate(startDate.getDate() + week * 7 + day);
   document.getElementById('slog-subtitle').textContent = startDate.toLocaleDateString('en-AU', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
   // Show log note as prompt
@@ -2094,7 +2100,7 @@ function toggleEveLog(week, day, btn) {
   const origDayIndex = weekOrder[day];
   const eve = EVENING_RIDES[week][origDayIndex];
   document.getElementById('slog-title').textContent = '🌙 Evening Ride — ' + DAYS[day];
-  const startDate = new Date('2026-05-04');
+  const startDate = new Date('2026-05-05');
   startDate.setDate(startDate.getDate() + week * 7 + day);
   document.getElementById('slog-subtitle').textContent = 'Optional Indoor Bike · ' + startDate.toLocaleDateString('en-AU', {day:'numeric', month:'long'});
 
